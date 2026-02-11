@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Scan Dataset - PoisonProof AI Secure Lab{% endblock %}
+
+{% block content %}
+<div class="container mt-4 fade-in">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="cyber-card text-center">
+                <i class="bi bi-upload" style="font-size: 4rem; color: var(--accent-green);"></i>
+                <h1 class="mt-3">Dataset Integrity Scanner</h1>
+                <p class="text-light opacity-75">
+                    Upload your CSV dataset for comprehensive integrity analysis and anomaly detection.
+                </p>
+                <div class="divider"></div>
+
+                <form id="uploadForm" action="{{ url_for('scan_file') }}" method="post" enctype="multipart/form-data">
+                    <div class="mb-4">
+                        <label for="file" class="upload-area">
+                            <i class="bi bi-cloud-arrow-up-fill" style="font-size: 3rem;"></i>
+                            <h5 class="mt-3">Drag & Drop File Here</h5>
+                            <p class="text-light opacity-50">or click to select a file</p>
+                            <small>(Max Size: 100MB, .csv format only)</small>
+                        </label>
+                        <input type="file" id="file" name="file" class="d-none" accept=".csv" required>
+                    </div>
+
+                    <button type="submit" class="glow-btn">
+                        <i class="bi bi-search me-2"></i>Start Integrity Scan
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

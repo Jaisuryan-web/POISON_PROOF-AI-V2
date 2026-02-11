@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Train Model - PoisonProof AI Secure Lab{% endblock %}
+
+{% block content %}
+<div class="container mt-4 fade-in">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="cyber-card text-center">
+                <i class="bi bi-cpu" style="font-size: 4rem; color: var(--accent-green);"></i>
+                <h1 class="mt-3">Secure Model Training</h1>
+                <p class="text-light opacity-75">
+                    Train a lightweight machine learning model on a verified, clean dataset.
+                </p>
+                <div class="divider"></div>
+
+                <form id="train-form" action="{{ url_for('train_model_post') }}" method="post" enctype="multipart/form-data">
+                    <div class="mb-3 text-start">
+                        <label for="file" class="form-label">Select Cleaned Dataset (.csv)</label>
+                        <input type="file" class="form-control" id="file" name="file" accept=".csv" required>
+                    </div>
+                    
+                    <div class="mb-4 text-start">
+                        <label for="model_type" class="form-label">Select Model Type</label>
+                        <select class="form-select" id="model_type" name="model_type">
+                            <option value="LogisticRegression">Logistic Regression</option>
+                            <option value="RandomForestClassifier">Random Forest</option>
+                            <option value="SVC">Support Vector Machine (SVM)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="glow-btn">
+                        <i class="bi bi-play-circle-fill me-2"></i>Start Training
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

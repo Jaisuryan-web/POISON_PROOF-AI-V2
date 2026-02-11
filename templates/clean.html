@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Clean Dataset - PoisonProof AI Secure Lab{% endblock %}
+
+{% block content %}
+<div class="container mt-4 fade-in">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="cyber-card text-center">
+                <i class="bi bi-shield-shaded" style="font-size: 4rem; color: var(--accent-green);"></i>
+                <h1 class="mt-3">Dataset Cleaning Complete</h1>
+                <p class="text-light opacity-75">
+                    Anomalous rows have been removed from <strong>{{ report.filename }}</strong>.
+                </p>
+                <div class="divider"></div>
+
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="cyber-card">
+                            <h3>{{ report.original_rows }}</h3>
+                            <p class="text-light opacity-50 mb-0">Original Rows</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="cyber-card">
+                            <h3 class="severity-high">{{ report.original_rows - report.cleaned_rows }}</h3>
+                            <p class="text-light opacity-50 mb-0">Rows Removed</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="cyber-card">
+                            <h3 style="color: var(--accent-green);">{{ report.cleaned_rows }}</h3>
+                            <p class="text-light opacity-50 mb-0">Cleaned Rows</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <a href="{{ url_for('download_cleaned') }}" class="glow-btn">
+                        <i class="bi bi-download me-2"></i>Download Cleaned Dataset
+                    </a>
+                    <a href="{{ url_for('train_model') }}" class="glow-btn glow-btn-secondary mt-2">
+                        <i class="bi bi-cpu me-2"></i>Proceed to Training
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

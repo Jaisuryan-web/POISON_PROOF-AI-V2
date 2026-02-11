@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}Models - PoisonProof AI Secure Lab{% endblock %}
+
+{% block extra_head %}
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4 fade-in">
+    <div class="text-center">
+        <h1>Model Dashboard</h1>
+        <p class="text-light opacity-75">Compare all trained models with cryptographic verification.</p>
+    </div>
+
+    {% if models %}
+    <!-- Summary Cards -->
+    <div class="row g-4 my-4">
+        <div class="col-md-3">
+            <div class="cyber-card text-center">
+                <h3 class="h1" style="color: var(--accent-cyan);">{{ models|length }}</h3>
+                <p class="text-light opacity-75 mb-0">Total Models</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="cyber-card text-center">
+                <h3 class="h1" style="color: var(--accent-green);">{{ (models[0].metrics.accuracy * 100)|round(2) }}%</h3>
+                <p class="text-light opacity-75 mb-0">Best Accuracy</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="cyber-card text-center">
+                <h3 class="h1" style="color: var(--accent-green);">{{ models|selectattr('verified')|list|length }}</h3>
+                <p class="text-light opacity-75 mb-0">Verified Models</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="cyber-card text-center">
+                <h3 class="h1" style="color: var(--warning);">{{ models|rejectattr('verified')|list|length }}</h3>
+                <p class="text-light opacity-75 mb-0">Unverified</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Models Table -->
+    <div class="cyber-card">
+        <h2>All Trained Models</h2>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Model Name</th>
+                        <th>Accuracy</th>
+                        <th>Trained On</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for model in models %}
+                    <tr>
+                        <td><strong>{{ model.model_name }}</strong></td>
+                        <td style="color: var(--accent-green);">{{ (model.metrics.accuracy * 100)|round(2) }}%</td>
+                        <td>{{ model.trained_at|slice(0, 16) }}</td>
+                        <td>
+                            {% if model.verified %}
+                                <span style="color: var(--accent-green);"><i class="bi bi-check-circle-fill"></i> Verified</span>
+                            {% else %}
+                                <span style="color: var(--danger);"><i class="bi bi-exclamation-triangle-fill"></i> Unverified</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="{{ url_for('download_model', filename=model.model_name) }}" class="btn btn-sm glow-btn-secondary">Download</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {% else %}
+    <div class="cyber-card text-center mt-5">
+        <i class="bi bi-archive" style="font-size: 4rem; color: var(--accent-cyan);"></i>
+        <h2 class="mt-3">No Models Trained Yet</h2>
+        <p class="text-light opacity-75">Train your first model to see it appear in the dashboard.</p>
+        <div class="mt-4">
+            <a href="{{ url_for('train_model') }}" class="glow-btn">
+                <i class="bi bi-cpu me-2"></i>Train a New Model
+            </a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

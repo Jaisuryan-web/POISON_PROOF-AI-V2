@@ -1,0 +1,93 @@
+[
+  {
+    "file": "model_1762270057.pkl",
+    "sha256": "ad9f2b2fb9b3ef248980d28141068c93da97c1c6d2615c685182939653519a59",
+    "trained_at": "2025-11-04T15:27:37.662227+00:00",
+    "accuracy": 0.012345679012345678,
+    "precision": 0.011036036036036036,
+    "recall": 0.014414414414414415
+  },
+  {
+    "file": "model_1762274063.pkl",
+    "sha256": "60c93fce9bfc5e7bf43a9d8b8dcc6ecf06186c9f8608c9a299639bf2ea1d923a",
+    "trained_at": "2025-11-04T16:34:23.141008+00:00",
+    "accuracy": 0.0,
+    "precision": 0.0,
+    "recall": 0.0
+  },
+  {
+    "file": "model_1762276611.pkl",
+    "sha256": "bf01507c15db807e5c262c3249377d63d1acd09222f61386931b07df877b4f0b",
+    "trained_at": "2025-11-04T17:16:51.913535+00:00",
+    "accuracy": 0.9885057471264368,
+    "precision": 0.9780801209372638,
+    "recall": 0.9780801209372638,
+    "model_name": "DecisionTreeClassifier"
+  },
+  {
+    "model_name": "LogisticRegression_1762278451.pkl",
+    "hash": "7860d1a0c015245f068938fb15027981b45df8e8aa3c4d3a20456076c38873b9",
+    "trained_at": "2025-11-04T17:47:31.665780+00:00",
+    "metrics": {
+      "accuracy": 0.8563218390804598,
+      "precision": 0.8044117647058824,
+      "recall": 0.5521541950113379
+    },
+    "model_type": "LogisticRegression"
+  },
+  {
+    "model_name": "LogisticRegression_1762279005.pkl",
+    "hash": "7860d1a0c015245f068938fb15027981b45df8e8aa3c4d3a20456076c38873b9",
+    "trained_at": "2025-11-04T17:56:46.118949+00:00",
+    "metrics": {
+      "accuracy": 0.8563218390804598,
+      "precision": 0.8044117647058824,
+      "recall": 0.5521541950113379
+    },
+    "model_type": "LogisticRegression"
+  },
+  {
+    "model_name": "RandomForestClassifier_1762279656.pkl",
+    "hash": "daea1c2548608430e91fa54049f431eea00b83830200b3c6f37317015dae9c37",
+    "trained_at": "2025-11-04T18:07:36.525764+00:00",
+    "metrics": {
+      "accuracy": 0.02092050209205021,
+      "precision": 0.015574703074703076,
+      "recall": 0.01759259259259259
+    },
+    "model_type": "RandomForestClassifier"
+  },
+  {
+    "model_name": "LogisticRegression_1762279853.pkl",
+    "hash": "7860d1a0c015245f068938fb15027981b45df8e8aa3c4d3a20456076c38873b9",
+    "trained_at": "2025-11-04T18:10:53.996534+00:00",
+    "metrics": {
+      "accuracy": 0.8563218390804598,
+      "precision": 0.8044117647058824,
+      "recall": 0.5521541950113379
+    },
+    "model_type": "LogisticRegression"
+  },
+  {
+    "model_name": "SVC_1767762458.pkl",
+    "hash": "194914299adce7837647c8de4d16b308f90e5e526d53629a4c6dd1144001072a",
+    "trained_at": "2026-01-07T05:07:38.818038+00:00",
+    "metrics": {
+      "accuracy": 0.8793103448275862,
+      "precision": 0.9375,
+      "recall": 0.6111111111111112
+    },
+    "model_type": "SVC"
+  },
+  {
+    "model_name": "SVC_1767762535.pkl",
+    "hash": "194914299adce7837647c8de4d16b308f90e5e526d53629a4c6dd1144001072a",
+    "trained_at": "2026-01-07T05:08:55.768559+00:00",
+    "metrics": {
+      "accuracy": 0.8793103448275862,
+      "precision": 0.9375,
+      "recall": 0.6111111111111112
+    },
+    "model_type": "SVC"
+  }
+]

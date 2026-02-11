@@ -1,0 +1,439 @@
+{% extends "base.html" %}
+
+{% block title %}Home - PoisonProof AI Secure Lab{% endblock %}
+
+{% block extra_head %}
+    <style>
+        .hero-section {
+            min-height: 45vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px var(--border-glow);
+            animation: neonPulse 2s ease-in-out infinite;
+        }
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 1.5rem auto 2.5rem;
+            line-height: 1.8;
+        }
+        .feature-card {
+            background: linear-gradient(135deg, rgba(0, 255, 127, 0.05), rgba(0, 255, 255, 0.03));
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 25px var(--border-glow);
+            background: linear-gradient(135deg, rgba(0, 255, 127, 0.1), rgba(0, 255, 255, 0.05));
+            border-color: var(--accent-green);
+        }
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--accent-green);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px var(--border-glow);
+        }
+        .tech-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            margin: 0.3rem;
+            background: rgba(0, 255, 127, 0.1);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--accent-green);
+            transition: all 0.3s ease;
+        }
+        .tech-badge:hover {
+            background: rgba(0, 255, 127, 0.2);
+            box-shadow: 0 0 15px var(--border-glow);
+        }
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-green), transparent);
+        }
+        .stats-card {
+            background: rgba(0, 255, 127, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            text-shadow: 0 0 10px var(--border-glow);
+        }
+        .detection-item {
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: rgba(0, 255, 127, 0.03);
+            border-left: 3px solid var(--accent-green);
+            border-radius: 5px;
+            text-align: left;
+        }
+        .security-icon {
+            color: var(--accent-cyan);
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<div class="container text-center fade-in">
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div>
+            <h1 class="hero-title neon-text">🛡️ PoisonProof AI Secure Lab</h1>
+            <p class="hero-subtitle">
+                Enterprise-grade AI security platform for detecting data poisoning, verifying dataset integrity, 
+                and training tamper-proof machine learning models. Powered by cryptographic hashing, 
+                statistical anomaly detection, and real-time threat analysis.
+            </p>
+            <div class="mt-4">
+                <a href="{{ url_for('secure_upload') }}" class="glow-btn">
+                    <i class="bi bi-shield-check-fill me-2"></i> Begin Security Scan
+                </a>
+                <a href="{{ url_for('models_dashboard') }}" class="glow-btn glow-btn-secondary ms-2">
+                    <i class="bi bi-bar-chart-fill me-2"></i> View Models
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-4">
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-number">40+</div>
+                    <p class="text-light mb-0">Attack Patterns</p>
+                    <small class="text-muted">SQL, XSS, Command Injection</small>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-number">SHA-256</div>
+                    <p class="text-light mb-0">Cryptographic Hash</p>
+                    <small class="text-muted">End-to-End Verification</small>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-number">3</div>
+                    <p class="text-light mb-0">Detection Methods</p>
+                    <small class="text-muted">MAD, IQR, Signatures</small>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-number">Real-Time</div>
+                    <p class="text-light mb-0">Live Training</p>
+                    <small class="text-muted">SSE Streaming Console</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Features Section -->
+    <section class="py-5">
+        <h2 class="section-title">Core Security Features</h2>
+        <div class="divider my-4"></div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-shield-fill-check"></i></div>
+                    <h3 class="h4">Integrity Verification</h3>
+                    <p>SHA-256 cryptographic hashing at every stage: upload, cleaning, and training. Immutable audit trails ensure complete traceability.</p>
+                    <div class="mt-3">
+                        <span class="tech-badge"><i class="bi bi-check2"></i> SHA-256</span>
+                        <span class="tech-badge"><i class="bi bi-check2"></i> Audit Logs</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-bug-fill"></i></div>
+                    <h3 class="h4">Advanced Anomaly Detection</h3>
+                    <p>Multi-layered detection using MAD (Median Absolute Deviation), IQR (Interquartile Range), and 40+ malicious payload signatures.</p>
+                    <div class="mt-3">
+                        <span class="tech-badge"><i class="bi bi-check2"></i> MAD</span>
+                        <span class="tech-badge"><i class="bi bi-check2"></i> IQR</span>
+                        <span class="tech-badge"><i class="bi bi-check2"></i> Signatures</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-cpu-fill"></i></div>
+                    <h3 class="h4">Secure Model Training</h3>
+                    <p>Real-time training console with SSE streaming. Live metrics, progress tracking, and automatic model verification with hash registry.</p>
+                    <div class="mt-3">
+                        <span class="tech-badge"><i class="bi bi-check2"></i> Live Console</span>
+                        <span class="tech-badge"><i class="bi bi-check2"></i> Hash Registry</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Threat Detection Section -->
+    <section class="py-5 text-start">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 class="section-title">🔍 Threat Detection Coverage</h2>
+                <div class="divider my-4"></div>
+                <div class="detection-item">
+                    <i class="bi bi-database-fill-x security-icon"></i>
+                    <strong>SQL Injection Attacks</strong>
+                    <p class="mb-0 mt-2 text-muted">Detects DROP TABLE, UNION SELECT, ' OR '1'='1, admin'--, and 10+ variants</p>
+                </div>
+                <div class="detection-item">
+                    <i class="bi bi-code-slash security-icon"></i>
+                    <strong>Cross-Site Scripting (XSS)</strong>
+                    <p class="mb-0 mt-2 text-muted">Identifies &lt;script&gt; tags, onerror handlers, javascript: protocols, iframe injections</p>
+                </div>
+                <div class="detection-item">
+                    <i class="bi bi-terminal-fill security-icon"></i>
+                    <strong>Command Injection</strong>
+                    <p class="mb-0 mt-2 text-muted">Catches ; rm -rf, | nc, $(wget), `cat /etc/passwd`, and shell metacharacters</p>
+                </div>
+                <div class="detection-item">
+                    <i class="bi bi-folder-symlink-fill security-icon"></i>
+                    <strong>Path Traversal</strong>
+                    <p class="mb-0 mt-2 text-muted">Blocks ../../../etc/passwd, ..\..\windows\system32, and directory manipulation</p>
+                </div>
+                <div class="detection-item">
+                    <i class="bi bi-braces security-icon"></i>
+                    <strong>NoSQL Injection</strong>
+                    <p class="mb-0 mt-2 text-muted">Prevents {'$ne': null}, {'$gt': ''}, and MongoDB operator exploitation</p>
+                </div>
+                <div class="detection-item">
+                    <i class="bi bi-layers-fill security-icon"></i>
+                    <strong>LDAP Injection</strong>
+                    <p class="mb-0 mt-2 text-muted">Stops *)(uid=*), admin)(|(password=*)), and directory service attacks</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="section-title">📊 Statistical Analysis</h2>
+                <div class="divider my-4"></div>
+                <div class="detection-item">
+                    <i class="bi bi-graph-up security-icon"></i>
+                    <strong>MAD (Median Absolute Deviation)</strong>
+                    <p class="mb-0 mt-2 text-muted">Robust outlier detection resistant to extreme values. Flags Z-scores > 3.5 for investigation</p>
+                </div>
+                <div class="detection-item">
+                    <i class="bi bi-box-seam security-icon"></i>
+                    <strong>IQR (Interquartile Range)</strong>
+                    <p class="mb-0 mt-2 text-muted">Box plot method detecting values outside Q1 - 1.5*IQR and Q3 + 1.5*IQR boundaries</p>
+                </div>
+                <div class="detection-item">
+                    <i class="bi bi-image-fill security-icon"></i>
+                    <strong>Image Forensics (ELA)</strong>
+                    <p class="mb-0 mt-2 text-muted">Error Level Analysis detects recompression artifacts and tampered regions</p>
+                </div>
+                <div class="detection-item">
+                    <i class="bi bi-file-earmark-binary security-icon"></i>
+                    <strong>EXIF Metadata Analysis</strong>
+                    <p class="mb-0 mt-2 text-muted">Examines camera info, editing software traces, and stripped metadata anomalies</p>
+                </div>
+                <div class="detection-item">
+                    <i class="bi bi-bar-chart-line security-icon"></i>
+                    <strong>Entropy-Based Detection</strong>
+                    <p class="mb-0 mt-2 text-muted">Statistical entropy analysis flags steganography (>7.8) and synthetic data (<5.5)</p>
+                </div>
+                <div class="detection-item">
+                    <i class="bi bi-search security-icon"></i>
+                    <strong>Blur & Range Checks</strong>
+                    <p class="mb-0 mt-2 text-muted">Measures image sharpness via Laplacian variance and compression quality assessment</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Cleaning Section -->
+    <section class="py-5">
+        <h2 class="section-title">🧹 Intelligent Data Cleaning</h2>
+        <div class="divider my-4"></div>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-lightning-fill"></i></div>
+                    <h3 class="h4">Auto-Clean Mode</h3>
+                    <p>One-click removal of all High severity threats. Automatically filters out SQL injections, XSS attacks, and statistical outliers with Z-scores > 5.</p>
+                    <ul class="text-start mt-3">
+                        <li>Instant threat elimination</li>
+                        <li>Preserves Medium/Low severity data</li>
+                        <li>Detailed cleaning report</li>
+                        <li>Downloadable cleaned CSV</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-check2-square"></i></div>
+                    <h3 class="h4">Manual Review Mode</h3>
+                    <p>Fine-grained control with checkbox selection. Review each anomaly individually, see severity levels, and choose exactly which rows to remove.</p>
+                    <ul class="text-start mt-3">
+                        <li>Interactive checkbox selection</li>
+                        <li>Live row counter display</li>
+                        <li>Select All/None toggle</li>
+                        <li>Preview before cleaning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training & Models Section -->
+    <section class="py-5">
+        <h2 class="section-title">🤖 ML Model Training & Comparison</h2>
+        <div class="divider my-4"></div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-broadcast"></i></div>
+                    <h3 class="h4">Live Training Console</h3>
+                    <p>Real-time Server-Sent Events (SSE) streaming. Watch training progress live with animated console, metrics updates, and status badges.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-bar-chart-fill"></i></div>
+                    <h3 class="h4">Model Dashboard</h3>
+                    <p>Compare all trained models with Plotly charts. View accuracy, precision, recall metrics. Verify SHA-256 hashes and download models.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="bi bi-journal-code"></i></div>
+                    <h3 class="h4">Model Registry</h3>
+                    <p>Automatic model versioning with hash registry. Track training history, verify model integrity, and maintain complete audit trails.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section class="py-5">
+        <h2 class="section-title">⚡ Technology Stack</h2>
+        <div class="divider my-4"></div>
+        <div class="cyber-card">
+            <div class="row">
+                <div class="col-md-6 text-start">
+                    <h4><i class="bi bi-code-square me-2"></i>Backend</h4>
+                    <span class="tech-badge">Python 3.12</span>
+                    <span class="tech-badge">Flask 2.3.3</span>
+                    <span class="tech-badge">NumPy 1.26+</span>
+                    <span class="tech-badge">Pandas 2.2+</span>
+                    <span class="tech-badge">scikit-learn 1.4+</span>
+                    <span class="tech-badge">Pillow 10.0.1</span>
+                    <span class="tech-badge">joblib</span>
+                    <span class="tech-badge">tqdm</span>
+                    
+                    <h4 class="mt-4"><i class="bi bi-palette me-2"></i>Frontend</h4>
+                    <span class="tech-badge">Bootstrap 5</span>
+                    <span class="tech-badge">Plotly 5.17</span>
+                    <span class="tech-badge">Canvas API</span>
+                    <span class="tech-badge">EventSource (SSE)</span>
+                    <span class="tech-badge">Vanilla JS</span>
+                </div>
+                <div class="col-md-6 text-start">
+                    <h4><i class="bi bi-shield-lock me-2"></i>Security</h4>
+                    <span class="tech-badge">SHA-256 Hashing</span>
+                    <span class="tech-badge">Werkzeug Security</span>
+                    <span class="tech-badge">Session Management</span>
+                    <span class="tech-badge">File Cleanup</span>
+                    <span class="tech-badge">Secure Filenames</span>
+                    
+                    <h4 class="mt-4"><i class="bi bi-gear me-2"></i>Architecture</h4>
+                    <span class="tech-badge">Modular Design</span>
+                    <span class="tech-badge">RESTful API</span>
+                    <span class="tech-badge">SSE Streaming</span>
+                    <span class="tech-badge">Audit Logging</span>
+                    <span class="tech-badge">JSON Registry</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Section -->
+    <section class="py-5 text-start">
+        <h2 class="section-title">🔌 RESTful API Endpoints</h2>
+        <div class="divider my-4"></div>
+        <div class="cyber-card">
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="detection-item">
+                        <code class="text-success">GET /api/audit-log</code>
+                        <p class="mb-0 mt-2 text-muted">Retrieve complete audit trail in JSON format</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="detection-item">
+                        <code class="text-success">GET /api/audit-log/export</code>
+                        <p class="mb-0 mt-2 text-muted">Export audit log as downloadable CSV file</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="detection-item">
+                        <code class="text-success">GET /api/models</code>
+                        <p class="mb-0 mt-2 text-muted">List all trained models with metrics and hashes</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="detection-item">
+                        <code class="text-success">POST /api/verify/&lt;hash&gt;</code>
+                        <p class="mb-0 mt-2 text-muted">Verify file integrity against known SHA-256 hash</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <small class="text-muted"><i class="bi bi-info-circle me-2"></i>Perfect for CI/CD integration and automated security pipelines</small>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 text-center">
+        <div class="cyber-card">
+            <h2 class="mb-4">Ready to Secure Your AI Pipeline? 🚀</h2>
+            <p class="text-light mb-4">Start protecting your machine learning models from data poisoning and backdoor attacks today.</p>
+            <a href="{{ url_for('secure_upload') }}" class="glow-btn me-2">
+                <i class="bi bi-upload me-2"></i> Upload Dataset
+            </a>
+            <a href="{{ url_for('train_model') }}" class="glow-btn glow-btn-secondary">
+                <i class="bi bi-play-circle me-2"></i> Train Model
+            </a>
+        </div>
+    </section>
+</div>
+{% endblock %}

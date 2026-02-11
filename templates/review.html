@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block title %}Manual Review - PoisonProof AI Secure Lab{% endblock %}
+
+{% block content %}
+<div class="container mt-4 fade-in">
+    <div class="text-center">
+        <h1>Manual Review & Clean</h1>
+        <p class="text-light opacity-75">Select anomalous rows to remove from the dataset.</p>
+    </div>
+
+    <div class="cyber-card mt-4">
+        <!-- Selection Summary -->
+        <div class="alert alert-info mb-4">
+            <i class="bi bi-info-circle me-2"></i>
+            <strong>Selected Rows: <span id="selected-count">0</span></strong>
+            <span id="selected-rows-display" class="ms-3 text-muted"></span>
+        </div>
+
+        <form action="{{ url_for('clean_file', filename=filename) }}" method="post" id="clean-form">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" id="select-all" checked></th>
+                            <th>Row</th>
+                            <th>Location</th>
+                            <th>Description</th>
+                            <th>Severity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for anomaly in anomalies %}
+                        {% set row_num = anomaly.location.split('Row ')[1].split(' ')[0].split(',')[0].split('(')[0] %}
+                        <tr>
+                            <td><input type="checkbox" class="row-checkbox" data-row="{{ row_num }}" checked></td>
+                            <td>{{ row_num }}</td>
+                            <td>{{ anomaly.location }}</td>
+                            <td>{{ anomaly.description }}</td>
+                            <td><span class="severity-{{ anomaly.severity.lower() }}">{{ anomaly.severity }}</span></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="divider"></div>
+            <div class="text-center">
+                <button type="submit" class="glow-btn">
+                    <i class="bi bi-shield-shaded me-2"></i>Remove Selected Rows & Clean
+                </button>
+                <a href="{{ url_for('upload_page') }}" class="glow-btn glow-btn-secondary">
+                    <i class="bi bi-x-circle me-2"></i>Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+// Function to update selected rows display
+function updateSelectedRows() {
+    const checkboxes = document.querySelectorAll('.row-checkbox');
+    const selectedRows = new Set();
+    
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            selectedRows.add(parseInt(checkbox.dataset.row));
+        }
+    });
+    
+    const selectedArray = Array.from(selectedRows).sort((a, b) => a - b);
+    document.getElementById('selected-count').textContent = selectedArray.length;
+    
+    if (selectedArray.length > 0) {
+        if (selectedArray.length <= 10) {
+            document.getElementById('selected-rows-display').textContent = 
+                'Rows: ' + selectedArray.join(', ');
+        } else {
+            document.getElementById('selected-rows-display').textContent = 
+                'Rows: ' + selectedArray.slice(0, 10).join(', ') + '... and ' + (selectedArray.length - 10) + ' more';
+        }
+    } else {
+        document.getElementById('selected-rows-display').textContent = '';
+    }
+    
+    return selectedArray;
+}
+
+// Select all functionality
+document.getElementById('select-all').addEventListener('change', function(e) {
+    const checkboxes = document.querySelectorAll('.row-checkbox');
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = e.target.checked;
+    });
+    updateSelectedRows();
+});
+
+// Update display when individual checkboxes change
+document.querySelectorAll('.row-checkbox').forEach(checkbox => {
+    checkbox.addEventListener('change', updateSelectedRows);
+});
+
+// On form submit, add hidden inputs for unique row numbers
+document.getElementById('clean-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const selectedRows = updateSelectedRows();
+    
+    // Remove any existing hidden inputs
+    document.querySelectorAll('input[name="rows_to_remove"]').forEach(input => {
+        if (input.type === 'hidden') input.remove();
+    });
+    
+    // Add hidden inputs for each unique row
+    selectedRows.forEach(row => {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'rows_to_remove';
+        input.value = row;
+        this.appendChild(input);
+    });
+    
+    // Now submit the form
+    this.submit();
+});
+
+// Initial update
+updateSelectedRows();
+</script>
+{% endblock %}

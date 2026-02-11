@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block title %}Scan Results - PoisonProof AI Secure Lab{% endblock %}
+
+{% block extra_head %}
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<style>
+    .severity-high { color: var(--danger); }
+    .severity-medium { color: var(--warning); }
+    .severity-low { color: var(--accent-cyan); }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4 fade-in">
+    <div class="text-center">
+        <h1>Scan Results</h1>
+        <p class="text-light opacity-75">Integrity analysis for: <strong>{{ report.filename }}</strong></p>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="row g-4 my-4">
+        <div class="col-md-4">
+            <div class="cyber-card text-center">
+                <h3 class="h1 {{ 'severity-high' if report.summary.total_anomalies > 0 else 'severity-low' }}">{{ report.summary.total_anomalies }}</h3>
+                <p class="text-light opacity-75 mb-0">Anomalies Detected</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="cyber-card text-center">
+                <h3 class="h1">{{ report.summary.rows_scanned }}</h3>
+                <p class="text-light opacity-75 mb-0">Rows Scanned</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="cyber-card text-center">
+                <h3 class="h1" style="color: var(--accent-green);">{{ report.summary.integrity_status }}</h3>
+                <p class="text-light opacity-75 mb-0">Integrity Status</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Results -->
+    <div class="cyber-card">
+        <div class="row g-4">
+            <!-- Anomalies Table -->
+            <div class="col-lg-8">
+                <h2>Detected Anomalies</h2>
+                {% if report.anomalies %}
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Row</th>
+                                    <th>Column</th>
+                                    <th>Description</th>
+                                    <th>Severity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for anomaly in report.anomalies %}
+                                    <tr>
+                                        <td>{{ anomaly.row }}</td>
+                                        <td>{{ anomaly.column }}</td>
+                                        <td>{{ anomaly.description }}</td>
+                                        <td><span class="severity-{{ anomaly.severity.lower() }}">{{ anomaly.severity }}</span></td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <p style="color: var(--accent-green);">No anomalies detected. The dataset appears to be clean.</p>
+                {% endif %}
+            </div>
+            <!-- Chart -->
+            <div class="col-lg-4">
+                <h2>Analysis Chart</h2>
+                <div id="chart-container" style="min-height: 300px;"></div>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <!-- Actions -->
+        <div class="text-center">
+            <a href="{{ url_for('secure_upload') }}" class="glow-btn glow-btn-secondary"><i class="bi bi-arrow-left me-2"></i>Scan Another</a>
+            {% if report.summary.total_anomalies > 0 %}
+                <a href="{{ url_for('auto_clean_file', filename=report.filename) }}" class="glow-btn" style="background: linear-gradient(135deg, #FF4C4C, #FF8C00);"><i class="bi bi-trash-fill me-2"></i>Auto Clean (Remove All Anomalies)</a>
+                <a href="{{ url_for('clean_file', filename=report.filename) }}" class="glow-btn"><i class="bi bi-check2-square me-2"></i>Manual Review (Select Rows)</a>
+            {% else %}
+                 <a href="{{ url_for('train_model') }}" class="glow-btn"><i class="bi bi-cpu me-2"></i>Train Model</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const chartData = {{ chart_json | safe }};
+    const layout = {
+        paper_bgcolor: 'transparent',
+        plot_bgcolor: 'transparent',
+        font: {
+            color: 'var(--text-light)'
+        },
+        xaxis: {
+            gridcolor: 'rgba(255, 255, 255, 0.1)'
+        },
+        yaxis: {
+            gridcolor: 'rgba(255, 255, 255, 0.1)'
+        },
+        legend: {
+            font: {
+                color: 'var(--text-light)'
+            }
+        }
+    };
+    Plotly.newPlot('chart-container', chartData.data, { ...chartData.layout, ...layout }, {responsive: true});
+});
+</script>
+{% endblock %}

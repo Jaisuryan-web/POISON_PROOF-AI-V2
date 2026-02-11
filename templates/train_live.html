@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block title %}Live Training - PoisonProof AI Secure Lab{% endblock %}
+
+{% block extra_head %}
+<style>
+    .console-line.info { color: var(--accent-cyan); }
+    .console-line.ok { color: var(--accent-green); }
+    .console-line.secure { color: var(--warning); }
+    .console-line.done { color: var(--accent-green); font-weight: bold; }
+    .console-line.error { color: var(--danger); }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4 fade-in">
+    <div class="text-center">
+        <h1>Live Model Training</h1>
+        <p class="text-light opacity-75">Real-time training progress with cryptographic verification.</p>
+    </div>
+
+    <div class="row g-4 mt-4">
+        <!-- Console Output -->
+        <div class="col-lg-8">
+            <div class="cyber-card">
+                <h2 class="d-flex justify-content-between align-items-center">
+                    <span>Training Console</span>
+                    <span class="badge bg-success" id="status-badge" style="font-size: 0.9rem; background-color: var(--accent-cyan) !important;">Initializing...</span>
+                </h2>
+                <div class="terminal mt-3" id="console-output"></div>
+                <div class="progress mt-3">
+                    <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Metrics Panel -->
+        <div class="col-lg-4">
+            <div class="cyber-card mb-4">
+                <h2 class="text-center">Metrics</h2>
+                <div class="text-center mt-3">
+                    <h3 id="accuracy" style="color: var(--accent-green);">--</h3>
+                    <p class="text-light opacity-75 mb-0">Accuracy</p>
+                </div>
+            </div>
+            <div class="cyber-card">
+                <h2>Model Hash</h2>
+                <code id="model-hash" class="d-block p-2 mt-2" style="background: #000; border-radius: 5px; word-break: break-all;">Waiting for hash...</code>
+            </div>
+        </div>
+    </div>
+
+    <div id="actions-panel" class="text-center mt-4 d-none">
+        <a href="{{ url_for('models_dashboard') }}" class="glow-btn">
+            <i class="bi bi-grid-3x3-gap-fill me-2"></i>View Models
+        </a>
+        <a href="{{ url_for('train_model') }}" class="glow-btn glow-btn-secondary mt-2">
+            <i class="bi bi-arrow-repeat me-2"></i>Train Another
+        </a>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const jobId = "{{ job_id }}";
+    const consoleOutput = document.getElementById('console-output');
+    const progressBar = document.getElementById('progress-bar');
+    const statusBadge = document.getElementById('status-badge');
+    const accuracyEl = document.getElementById('accuracy');
+    const modelHashEl = document.getElementById('model-hash');
+    const actionsPanel = document.getElementById('actions-panel');
+
+    function addConsoleLine(message, type) {
+        const line = document.createElement('div');
+        line.className = `console-line ${type}`;
+        line.textContent = `> ${message}`;
+        consoleOutput.appendChild(line);
+        consoleOutput.scrollTop = consoleOutput.scrollHeight;
+    }
+
+    const eventSource = new EventSource(`/train/stream/${jobId}`);
+
+    eventSource.onmessage = function(event) {
+        const data = JSON.parse(event.data);
+
+        if (data.status) {
+            addConsoleLine(data.status, 'info');
+            statusBadge.textContent = data.status;
+        }
+        if (data.progress) {
+            const progress = Math.round(data.progress);
+            progressBar.style.width = `${progress}%`;
+            progressBar.textContent = `${progress}%`;
+        }
+        if (data.metrics) {
+            accuracyEl.textContent = `${(data.metrics.accuracy * 100).toFixed(2)}%`;
+        }
+        if (data.hash) {
+            modelHashEl.textContent = data.hash;
+            addConsoleLine(`Model integrity hash generated: ${data.hash}`, 'secure');
+        }
+        if (data.message === 'complete') {
+            statusBadge.textContent = 'Complete';
+            statusBadge.style.backgroundColor = 'var(--accent-green)';
+            actionsPanel.classList.remove('d-none');
+            eventSource.close();
+        }
+        if (data.error) {
+            addConsoleLine(data.error, 'error');
+            statusBadge.textContent = 'Error';
+            statusBadge.style.backgroundColor = 'var(--danger)';
+            eventSource.close();
+        }
+    };
+
+    eventSource.onerror = function() {
+        addConsoleLine('Connection to server lost.', 'error');
+        statusBadge.textContent = 'Disconnected';
+        statusBadge.style.backgroundColor = 'var(--danger)';
+        eventSource.close();
+    };
+});
+</script>
+{% endblock %}

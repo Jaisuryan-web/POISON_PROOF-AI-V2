@@ -1,0 +1,61 @@
+employee_id,name,age,salary,department,years_experience,performance_score,location,hire_date,education_level,certifications,project_count,overtime_hours,satisfaction_rating,manager_id,security_clearance,training_completed,bonus_eligible,remote_work_days,health_score
+E001,John Doe,28,55000,Engineering,3,8.5,New York,2021-03-15,Bachelor,AWS Certified,12,45,8.2,M001,Level 2,15,Yes,2,85
+E002,Jane Smith,32,72000,Marketing,7,9.2,California,2018-01-22,Master,Google Analytics,8,25,9.1,M002,Level 1,22,Yes,3,92
+E003,Bob Johnson,45,95000,Engineering,15,7.8,Texas,2009-11-08,PhD,PMP Certified,25,65,7.5,M001,Level 3,35,Yes,1,78
+E004,Alice Brown,29,48000,HR,4,8.1,Florida,2020-06-12,Bachelor,SHRM-CP,6,30,8.3,M003,Level 1,18,No,4,88
+E005,Charlie Wilson,38,85000,Sales,12,9.0,Illinois,2012-09-03,Master,Salesforce Admin,18,40,8.9,M004,Level 2,28,Yes,2,91
+E006,Diana Davis,26,42000,Marketing,2,7.5,Washington,2022-02-14,Bachelor,HubSpot Certified,4,20,7.8,M002,Level 1,8,No,5,86
+E007,Frank Miller,41,110000,Engineering,18,9.5,California,2006-04-20,Master,CISSP,32,55,9.3,M001,Level 4,42,Yes,1,89
+E008,Grace Lee,33,63000,HR,8,8.7,New York,2016-12-05,Bachelor,PHR Certified,11,35,8.5,M003,Level 2,25,Yes,3,87
+E009,Henry Garcia,37,78000,Sales,10,8.3,Arizona,2014-07-18,Bachelor,Certified Sales Pro,15,42,8.1,M004,Level 2,23,Yes,2,83
+E010,Ivy Rodriguez,31,69000,Engineering,6,8.9,Colorado,2019-05-30,Master,Kubernetes Admin,14,48,8.8,M001,Level 2,19,Yes,2,90
+E011,Jack Martinez,44,98000,Management,16,9.1,Nevada,2008-10-12,MBA,PMP Certified,28,50,9.0,CEO,Level 3,38,Yes,1,85
+E012,Karen Anderson,27,51000,Marketing,3,7.9,Oregon,2021-08-25,Bachelor,Content Marketing,5,22,7.6,M002,Level 1,12,No,4,84
+E013,Leo Thompson,39,88000,Sales,13,8.6,Georgia,2011-01-09,Bachelor,Advanced Sales,21,44,8.4,M004,Level 2,31,Yes,2,88
+E014,Mia White,30,67000,HR,5,8.4,Virginia,2019-11-20,Master,SHRM-SCP,9,28,8.2,M003,Level 2,16,Yes,3,89
+E015,Nick Harris,35,75000,Engineering,9,8.2,Ohio,2015-03-14,Bachelor,Docker Certified,17,52,8.0,M001,Level 2,27,Yes,2,82
+E016,Olivia Johnson,42,105000,Management,14,9.3,California,2010-06-07,MBA,Six Sigma Black,26,38,9.2,CEO,Level 3,34,Yes,1,93
+E017,Paul Wilson,29,58000,Engineering,4,8.0,Texas,2020-12-01,Bachelor,Azure Certified,10,41,7.9,M001,Level 2,14,No,2,81
+E018,Quinn Davis,36,82000,Sales,11,8.8,Florida,2013-04-16,Master,Enterprise Sales,19,46,8.6,M004,Level 2,29,Yes,2,86
+E019,Rachel Brown,33,71000,Marketing,6,8.5,Illinois,2018-09-10,Bachelor,Digital Marketing,12,32,8.3,M002,Level 1,20,Yes,3,87
+E020,Sam Miller,40,92000,Engineering,12,8.1,Washington,2012-02-28,Master,Security+,22,58,7.8,M001,Level 3,32,Yes,1,79
+E021,Tina Lee,28,54000,HR,3,8.3,New York,2021-07-19,Bachelor,Compensation Pro,7,26,8.1,M003,Level 1,13,No,4,85
+E022,Ulysses Garcia,46,115000,Management,19,9.4,California,2005-12-11,PhD,Leadership Cert,35,42,9.1,CEO,Level 4,45,Yes,1,91
+E023,Victoria Rodriguez,31,66000,Marketing,5,8.2,Arizona,2019-10-23,Master,Brand Strategy,11,29,8.0,M002,Level 1,17,Yes,3,83
+E024,William Martinez,38,89000,Sales,12,8.7,Colorado,2012-05-15,Bachelor,Sales Leadership,20,43,8.5,M004,Level 2,30,Yes,2,88
+E025,Xander Anderson,25,-15000,Engineering,1,2.1,Nevada,2024-01-10,Bachelor,None,2,95,3.2,M001,Level 1,5,No,0,45
+E026,Yolanda Thompson,34,74000,HR,7,8.6,Oregon,2017-08-03,Master,Employee Relations,13,31,8.4,M003,Level 2,21,Yes,3,86
+E027,Zachary White,39,87000,Sales,11,8.4,Georgia,2013-11-27,Bachelor,Channel Partner,18,41,8.2,M004,Level 2,28,Yes,2,84
+E028,Amanda Harris,27,52000,Marketing,2,7.7,Virginia,2022-04-05,Bachelor,Social Media,3,18,7.4,M002,Level 1,9,No,5,82
+E029,Benjamin Johnson,43,102000,Engineering,16,9.0,Ohio,2008-07-22,Master,DevOps Expert,29,47,8.8,M001,Level 3,37,Yes,1,87
+E030,Catherine Wilson,30,64000,HR,4,8.0,California,2020-09-17,Bachelor,Talent Acquisition,8,27,7.9,M003,Level 1,15,No,4,83
+E031,Daniel Davis,36,79000,Sales,9,8.5,Texas,2015-01-12,Bachelor,B2B Sales,16,39,8.3,M004,Level 2,26,Yes,2,85
+E032,Elizabeth Brown,32,68000,Marketing,5,8.3,Florida,2019-03-28,Master,Marketing Analytics,10,33,8.1,M002,Level 1,18,Yes,3,86
+E033,Frederick Miller,41,96000,Engineering,14,8.8,Illinois,2010-12-06,Bachelor,Cloud Architect,24,51,8.6,M001,Level 3,33,Yes,1,88
+E034,Gabriela Lee,26,45000,HR,1,7.2,Washington,2023-06-20,Bachelor,HR Generalist,3,15,6.9,M003,Level 1,6,No,5,79
+E035,Harrison Garcia,35,76000,Sales,8,8.1,New York,2016-10-14,Bachelor,Inside Sales,14,37,7.9,M004,Level 2,24,Yes,2,81
+E036,Isabella Rodriguez,29,59000,Marketing,3,7.8,California,2021-12-08,Bachelor,Email Marketing,6,24,7.6,M002,Level 1,11,No,4,80
+E037,James Martinez,37,84000,Engineering,10,8.4,Arizona,2014-05-30,Master,Full Stack Dev,19,44,8.2,M001,Level 2,25,Yes,2,84
+E038,Katherine Anderson,33,70000,HR,6,8.2,Colorado,2018-02-15,Master,Organizational Dev,12,30,8.0,M003,Level 2,19,Yes,3,85
+E039,Lucas Thompson,40,91000,Sales,13,8.9,Nevada,2011-08-09,Bachelor,Enterprise Account,23,48,8.7,M004,Level 2,32,Yes,2,89
+E040,Margaret White,28,56000,Marketing,2,7.6,Oregon,2022-11-22,Bachelor,Content Creation,4,21,7.3,M002,Level 1,8,No,5,78
+E041,Nathan Harris,45,108000,Management,17,9.2,Georgia,2007-01-18,MBA,Operations Mgmt,31,45,9.0,CEO,Level 3,39,Yes,1,90
+E042,Ophelia Johnson,31,65000,Engineering,5,8.1,Virginia,2019-04-11,Bachelor,QA Specialist,11,40,7.8,M001,Level 2,16,Yes,2,82
+E043,Patrick Wilson,34,77000,Sales,7,8.3,Ohio,2017-09-26,Bachelor,Regional Sales,13,36,8.1,M004,Level 2,22,Yes,2,83
+E044,Quincy Davis,26,999999,Marketing,1,10.0,California,2024-03-15,PhD,AI Marketing,1,5,9.9,M002,Level 1,3,Yes,5,100
+E045,Rebecca Brown,39,86000,HR,12,8.7,Texas,2012-07-04,Master,Strategic HR,20,34,8.5,M003,Level 2,28,Yes,3,87
+E046,Stephen Miller,32,72000,Engineering,6,8.0,Florida,2018-12-20,Bachelor,Mobile Dev,15,42,7.7,M001,Level 2,18,Yes,2,80
+E047,Teresa Lee,28,53000,Marketing,2,7.4,Illinois,2022-08-17,Bachelor,PR Specialist,5,19,7.1,M002,Level 1,7,No,4,77
+E048,Ulrich Garcia,43,99000,Sales,15,8.6,Washington,2009-05-25,Master,Sales Strategy,27,49,8.4,M004,Level 3,35,Yes,2,86
+E049,Vanessa Rodriguez,30,61000,HR,4,8.1,New York,2020-10-13,Bachelor,Benefits Admin,9,25,7.8,M003,Level 1,14,No,3,84
+E050,Walter Martinez,36,80000,Engineering,9,8.2,California,2015-06-08,Master,Data Engineer,18,46,8.0,M001,Level 2,24,Yes,2,82
+E051,Xenia Anderson,24,35000,Marketing,0,6.5,Arizona,2024-05-12,Bachelor,Marketing Intern,1,10,6.2,M002,Level 1,2,No,5,72
+E052,Yuri Thompson,38,85000,Sales,11,8.4,Colorado,2013-02-19,Bachelor,Key Account Mgr,21,41,8.2,M004,Level 2,27,Yes,2,85
+E053,Zoe White,33,69000,HR,6,8.3,Nevada,2018-11-07,Master,Learning & Dev,14,28,8.1,M003,Level 2,20,Yes,3,86
+E054,Aaron Harris,29,57000,Engineering,3,7.9,Oregon,2021-01-26,Bachelor,Junior Developer,8,38,7.6,M001,Level 1,12,No,2,79
+E055,Bianca Johnson,35,75000,Marketing,8,8.5,Georgia,2016-04-19,Master,Product Marketing,16,31,8.3,M002,Level 2,23,Yes,3,88
+E056,Carlos Wilson,41,93000,Sales,14,8.8,Virginia,2010-09-14,Bachelor,Sales Director,25,45,8.6,M004,Level 3,33,Yes,2,89
+E057,Daniela Davis,27,49000,HR,2,7.8,Ohio,2022-06-01,Bachelor,Recruiter,5,22,7.5,M003,Level 1,9,No,4,81
+E058,Eduardo Brown,44,104000,Engineering,16,9.1,California,2008-03-10,PhD,Tech Lead,30,53,8.9,M001,Level 3,36,Yes,1,91
+E059,Fatima Miller,31,63000,Marketing,4,8.0,Texas,2020-11-30,Bachelor,Campaign Manager,9,26,7.8,M002,Level 1,15,Yes,3,83
+E060,Giovanni Lee,37,81000,Sales,10,8.2,Florida,2014-08-25,Bachelor,Business Dev,17,40,8.0,M004,Level 2,25,Yes,2,84
