@@ -1,12 +1,12 @@
 # PoisonProof AI — Advanced Security Platform
 
-🛡️ **Enterprise-grade AI security platform with real-time anomaly detection, ML model training, and cryptographic verification**
+ **Enterprise-grade AI security platform with real-time anomaly detection, ML model training, and cryptographic verification**
 
 > A comprehensive Flask-based security platform that detects data poisoning attacks, injection vulnerabilities, and image manipulation across CSV and image datasets. Features live model training with SSE streaming, automated/manual data cleaning, and a cyber-themed UI with Matrix rain animation.
 
 ---
 
-## 📋 Table of Contents
+##  Table of Contents
 
 - [Quick Start](#-quick-start)
 - [Key Features](#-key-features)
@@ -1044,5 +1044,6 @@ This is a **proof-of-concept** and **educational tool**. For production use:
 **Made with ❤️ and ☕ by the PoisonProof AI Team**
 
 *Securing AI, One Dataset at a Time* 🛡️
-#   P O I S O N _ P R O O F - A I - V 2  
+#   P O I S O N _ P R O O F - A I - V 2 
+ 
  
