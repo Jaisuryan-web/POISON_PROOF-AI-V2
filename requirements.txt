@@ -1,6 +1,8 @@
 Flask==2.3.3
 Werkzeug==2.3.7
-pandas>=1.5.0,<2.0.0
-numpy>=1.21.0,<1.25.0
+numpy>=1.26,<3.0
+pandas>=2.2,<3.0
 Pillow==10.0.1
 plotly==5.17.0
+scikit-learn>=1.4,<1.6
+tqdm>=4.66,<5.0
