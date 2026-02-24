@@ -31,7 +31,7 @@
 
 ### Installation (Windows PowerShell)
 
-```powershell
+powershell
 # 1. Install uv
 python -m pip install --upgrade pip
 python -m pip install uv
@@ -1047,4 +1047,5 @@ This is a **proof-of-concept** and **educational tool**. For production use:
 #   P O I S O N _ P R O O F - A I - V 2 
  
  
+
 
