@@ -58,7 +58,7 @@ Open your browser to: **http://127.0.0.1:5000**
 
 ## 🎯 Key Features
 
-### 🔍 Advanced Threat Detection
+###  Advanced Threat Detection
 
 #### CSV Security Scanning
 - **40+ Injection Patterns**: Detects SQL injection, XSS, command injection, path traversal, NoSQL, LDAP injection
@@ -1047,3 +1047,4 @@ This is a **proof-of-concept** and **educational tool**. For production use:
 #   P O I S O N _ P R O O F - A I - V 2 
  
  
+
