@@ -47,6 +47,11 @@
                      <li class="nav-item">
                         <a class="nav-link {% if request.endpoint == 'train_model' %}active{% endif %}" href="{{ url_for('train_model') }}">Train</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.endpoint == 'chatbot_page' %}active{% endif %}" href="{{ url_for('chatbot_page') }}">
+                            <i class="bi bi-robot me-1"></i>AI Assistant
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
