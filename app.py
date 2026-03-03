@@ -25,6 +25,8 @@ import re
 # NEW: Universal Scanner System
 from scanners import scan_file as universal_scan, get_supported_extensions, is_supported, ScannerRegistry
 
+# NEW: AI Chatbot System
+from utils.chatbot import chatbot
 
 def create_app(config_name=None):
     """Application factory pattern"""
@@ -506,6 +508,76 @@ def register_routes(app):
             flash(f'Error deleting model: {e}', 'error')
         
         return redirect(url_for('models_dashboard'))
+
+    # Chatbot Routes
+    @app.route('/chatbot')
+    def chatbot_page():
+        """AI Security Assistant chatbot page"""
+        return render_template('chatbot.html')
+
+    @app.route('/api/chatbot/chat', methods=['POST'])
+    def api_chatbot_chat():
+        """Handle chatbot messages"""
+        try:
+            data = request.get_json()
+            if not data or 'message' not in data:
+                return jsonify({'error': 'No message provided'}), 400
+            
+            message = data.get('message', '').strip()
+            if not message:
+                return jsonify({'error': 'Empty message'}), 400
+            
+            # Get response from chatbot
+            response = chatbot.get_response(message)
+            
+            return jsonify({
+                'success': True,
+                'response': response['response'],
+                'timestamp': response['timestamp'],
+                'query_type': response['query_type'],
+                'conversation_id': response['conversation_id']
+            })
+            
+        except Exception as e:
+            return jsonify({'error': f'Chatbot error: {str(e)}'}), 500
+
+    @app.route('/api/chatbot/suggestions', methods=['GET'])
+    def api_chatbot_suggestions():
+        """Get suggested questions for users"""
+        try:
+            suggestions = chatbot.get_suggested_questions()
+            return jsonify({
+                'success': True,
+                'suggestions': suggestions
+            })
+        except Exception as e:
+            return jsonify({'error': f'Error getting suggestions: {str(e)}'}), 500
+
+    @app.route('/api/chatbot/clear', methods=['POST'])
+    def api_chatbot_clear():
+        """Clear chatbot conversation history"""
+        try:
+            chatbot.clear_history()
+            return jsonify({
+                'success': True,
+                'message': 'Chat history cleared successfully'
+            })
+        except Exception as e:
+            return jsonify({'error': f'Error clearing chat: {str(e)}'}), 500
+
+    @app.route('/api/chatbot/history', methods=['GET'])
+    def api_chatbot_history():
+        """Get chatbot conversation history"""
+        try:
+            limit = request.args.get('limit', 10, type=int)
+            history = chatbot.get_conversation_history(limit)
+            return jsonify({
+                'success': True,
+                'history': history,
+                'total': len(history)
+            })
+        except Exception as e:
+            return jsonify({'error': f'Error getting history: {str(e)}'}), 500
 
 def allowed_file(filename):
     """Check if file extension is allowed using config."""
