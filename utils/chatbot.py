@@ -134,17 +134,26 @@ class CyberSecurityChatbot:
         
         # Search in cybersecurity topics
         for topic, data in self.knowledge_base["cybersecurity_topics"].items():
-            if topic in query_lower:
+            # Check if topic name is in query
+            if topic.replace('_', ' ') in query_lower or topic in query_lower:
                 results[topic] = data
                 continue
             
             # Search in subtopics
             if isinstance(data, dict):
                 for subtopic, subdata in data.items():
-                    if subtopic in query_lower:
+                    # Check if subtopic name is in query
+                    if subtopic.replace('_', ' ') in query_lower or subtopic in query_lower:
                         results[f"{topic}_{subtopic}"] = subdata
+                    # Check for partial matches in cybersecurity terms
                     elif isinstance(subdata, dict) and "definition" in subdata:
-                        if any(word in query_lower for word in subtopic.split('_')):
+                        # Check if any part of the topic matches
+                        topic_words = topic.replace('_', ' ').split()
+                        subtopic_words = subtopic.replace('_', ' ').split()
+                        
+                        if any(word in query_lower for word in topic_words):
+                            results[topic] = data
+                        elif any(word in query_lower for word in subtopic_words):
                             results[f"{topic}_{subtopic}"] = subdata
         
         return results
