@@ -115,14 +115,39 @@ class CyberSecurityChatbot:
         if any(word in query_lower for word in ['what can you do', 'help', 'capabilities', 'features']):
             return 'capabilities'
         
-        # Check for cybersecurity topics
+        # Enhanced cybersecurity keywords detection
         cyber_keywords = [
             'cybersecurity', 'security', 'hack', 'attack', 'malware', 'virus',
-            'data poisoning', 'injection', 'sql', 'xss', 'firewall', 'vpn',
-            'encryption', 'password', 'phishing', 'ransomware', 'trojan'
+            'data poisoning', 'poisoning', 'injection', 'sql', 'xss', 'firewall', 'vpn',
+            'encryption', 'password', 'phishing', 'ransomware', 'trojan', 'worm',
+            'botnet', 'spyware', 'adware', 'rootkit', 'keylogger', 'ddos',
+            'network', 'threat', 'vulnerability', 'breach', 'incident', 'forensics',
+            'penetration', 'authentication', 'authorization', 'zero day', 'exploit',
+            'backdoor', 'malicious', 'protect', 'prevent', 'detect', 'secure'
         ]
         
-        if any(keyword in query_lower for keyword in cyber_keywords):
+        # Check for partial matches and word boundaries
+        for keyword in cyber_keywords:
+            if keyword in query_lower:
+                return 'cybersecurity'
+        
+        # Check for common cybersecurity question patterns
+        cyber_patterns = [
+            'how to prevent', 'how to protect', 'how to detect', 'how to secure',
+            'what is', 'what are', 'how does', 'why is', 'best practices',
+            'common types', 'types of', 'examples of', 'how to avoid'
+        ]
+        
+        cyber_topic_words = [
+            'data', 'machine learning', 'ml', 'ai', 'model', 'training', 'dataset',
+            'database', 'web', 'application', 'system', 'network', 'computer'
+        ]
+        
+        # If query contains cybersecurity patterns AND topic words, classify as cybersecurity
+        has_cyber_pattern = any(pattern in query_lower for pattern in cyber_patterns)
+        has_topic_words = any(word in query_lower for word in cyber_topic_words)
+        
+        if has_cyber_pattern and has_topic_words:
             return 'cybersecurity'
         
         return 'general'
@@ -132,29 +157,57 @@ class CyberSecurityChatbot:
         query_lower = query.lower()
         results = {}
         
-        # Search in cybersecurity topics
+        # Enhanced search for cybersecurity topics
         for topic, data in self.knowledge_base["cybersecurity_topics"].items():
-            # Check if topic name is in query
+            # Direct topic match
             if topic.replace('_', ' ') in query_lower or topic in query_lower:
                 results[topic] = data
                 continue
             
-            # Search in subtopics
+            # Search in subtopics and content
             if isinstance(data, dict):
                 for subtopic, subdata in data.items():
-                    # Check if subtopic name is in query
+                    # Subtopic match
                     if subtopic.replace('_', ' ') in query_lower or subtopic in query_lower:
                         results[f"{topic}_{subtopic}"] = subdata
-                    # Check for partial matches in cybersecurity terms
-                    elif isinstance(subdata, dict) and "definition" in subdata:
-                        # Check if any part of the topic matches
-                        topic_words = topic.replace('_', ' ').split()
-                        subtopic_words = subtopic.replace('_', ' ').split()
+                        continue
+                    
+                    # Content-based search for definitions and text
+                    if isinstance(subdata, dict):
+                        # Search in definition
+                        if "definition" in subdata:
+                            def_lower = subdata["definition"].lower()
+                            if any(word in def_lower for word in query_lower.split() if len(word) > 2):
+                                results[f"{topic}_{subtopic}"] = subdata
+                                continue
                         
-                        if any(word in query_lower for word in topic_words):
-                            results[topic] = data
-                        elif any(word in query_lower for word in subtopic_words):
+                        # Search in prevention methods
+                        if "prevention" in subdata:
+                            for method in subdata["prevention"]:
+                                if any(word in method.lower() for word in query_lower.split() if len(word) > 2):
+                                    results[f"{topic}_{subtopic}"] = subdata
+                                    break
+                        
+                        # Search in examples
+                        if "examples" in subdata:
+                            for example in subdata["examples"]:
+                                if any(word in example.lower() for word in query_lower.split() if len(word) > 2):
+                                    results[f"{topic}_{subtopic}"] = subdata
+                                    break
+                    
+                    # Simple text search
+                    elif isinstance(subdata, str):
+                        if any(word in subdata.lower() for word in query_lower.split() if len(word) > 2):
                             results[f"{topic}_{subtopic}"] = subdata
+                            continue
+            
+            # Topic-level content search
+            elif isinstance(data, dict):
+                if "definition" in data:
+                    def_lower = data["definition"].lower()
+                    if any(word in def_lower for word in query_lower.split() if len(word) > 2):
+                        results[topic] = data
+                        continue
         
         return results
     
