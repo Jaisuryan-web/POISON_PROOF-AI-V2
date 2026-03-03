@@ -1,12 +1,12 @@
 # PoisonProof AI — Advanced Security Platform
 
-🛡️ **Enterprise-grade AI security platform with real-time anomaly detection, ML model training, and cryptographic verification**
+ **Enterprise-grade AI security platform with real-time anomaly detection, ML model training, and cryptographic verification**
 
 > A comprehensive Flask-based security platform that detects data poisoning attacks, injection vulnerabilities, and image manipulation across CSV and image datasets. Features live model training with SSE streaming, automated/manual data cleaning, and a cyber-themed UI with Matrix rain animation.
 
 ---
 
-## 📋 Table of Contents
+##  Table of Contents
 
 - [Quick Start](#-quick-start)
 - [Key Features](#-key-features)
@@ -31,7 +31,7 @@
 
 ### Installation (Windows PowerShell)
 
-```powershell
+powershell
 # 1. Install uv
 python -m pip install --upgrade pip
 python -m pip install uv
@@ -58,7 +58,7 @@ Open your browser to: **http://127.0.0.1:5000**
 
 ## 🎯 Key Features
 
-### 🔍 Advanced Threat Detection
+###  Advanced Threat Detection
 
 #### CSV Security Scanning
 - **40+ Injection Patterns**: Detects SQL injection, XSS, command injection, path traversal, NoSQL, LDAP injection
@@ -1044,5 +1044,8 @@ This is a **proof-of-concept** and **educational tool**. For production use:
 **Made with ❤️ and ☕ by the PoisonProof AI Team**
 
 *Securing AI, One Dataset at a Time* 🛡️
-#   P O I S O N _ P R O O F - A I - V 2  
+#   P O I S O N _ P R O O F - A I - V 2 
  
+ 
+
+
