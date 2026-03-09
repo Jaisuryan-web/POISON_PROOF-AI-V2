@@ -261,29 +261,205 @@ class CyberSecurityChatbot:
     def get_response(self, query: str) -> Dict[str, Any]:
         """Get chatbot response for user query"""
         timestamp = datetime.now().isoformat()
+        query_lower = query.lower()
         
-        # Classify the query
-        query_type = self._classify_query(query)
-        
-        # Generate response based on type
-        if query_type == 'greeting':
-            response = random.choice(self.knowledge_base["general_responses"]["greetings"])
-        elif query_type == 'goodbye':
-            response = random.choice(self.knowledge_base["general_responses"]["goodbyes"])
-        elif query_type == 'capabilities':
-            response = random.choice(self.knowledge_base["general_responses"]["capabilities"])
-        elif query_type == 'cybersecurity':
-            search_results = self._search_knowledge_base(query)
-            response = self._generate_cybersecurity_response(query, search_results)
+        # Direct keyword-based responses
+        if any(word in query_lower for word in ['hello', 'hi', 'hey', 'greetings']):
+            response = """Hello! I'm your AI Security Assistant. I can help you with:
+
+🔒 **Data poisoning and ML security**
+💉 **Injection attacks (SQL, XSS, Command)**
+🦠 **Malware protection and prevention**
+🛡️ **Network security best practices**
+🔐 **General cybersecurity questions**
+
+Feel free to ask me anything about cybersecurity! What would you like to know?"""
+
+        elif "data poisoning" in query_lower:
+            response = """**Data Poisoning in Machine Learning**
+
+Data poisoning is a type of adversarial attack where malicious actors intentionally corrupt training data to manipulate ML model behavior.
+
+**How it works:**
+- Attackers insert malicious samples into training datasets
+- These samples are designed to manipulate model decision boundaries
+- Can cause models to make incorrect predictions or specific targeted misclassifications
+
+**Prevention Methods:**
+1. **Data Validation** - Rigorously validate and sanitize all training data
+2. **Anomaly Detection** - Use statistical methods to detect outliers in training data
+3. **Robust Algorithms** - Use ML models that are resistant to adversarial training
+4. **Regular Auditing** - Continuously monitor model behavior for anomalies
+5. **Trusted Data Sources** - Verify the integrity of data sources
+
+**Detection Techniques:**
+- Statistical analysis of data distributions
+- Cross-validation with trusted datasets
+- Behavioral analysis of model predictions
+- Outlier detection algorithms"""
+
+        elif "sql injection" in query_lower or "sql" in query_lower:
+            response = """**SQL Injection Attacks**
+
+SQL injection is a code injection technique that attacks data-driven applications by inserting malicious SQL statements into input fields.
+
+**Common Examples:**
+- `' OR '1'='1` - Bypasses authentication
+- `UNION SELECT username, password FROM users` - Extracts data
+- `'; DROP TABLE users; --` - Deletes data
+
+**Prevention Methods:**
+1. **Parameterized Queries** - Use prepared statements instead of string concatenation
+2. **Input Validation** - Validate and sanitize all user inputs
+3. **Least Privilege** - Database accounts should have minimal necessary permissions
+4. **Web Application Firewall** - Deploy WAF to filter malicious requests
+5. **ORM Frameworks** - Use Object-Relational Mapping tools that handle SQL safely
+
+**Best Practices:**
+- Never trust user input
+- Use whitelist validation instead of blacklist
+- Implement proper error handling that doesn't reveal database structure"""
+
+        elif "malware" in query_lower:
+            response = """**Common Types of Malware**
+
+**1. Virus**
+- Self-replicating code that attaches to legitimate programs
+- Spreads when infected programs are executed
+
+**2. Worm**
+- Standalone malware that replicates across networks
+- Doesn't need human interaction to spread
+
+**3. Trojan Horse**
+- Disguises as legitimate software
+- Creates backdoors for attackers
+
+**4. Ransomware**
+- Encrypts files and demands payment for decryption
+- Can spread through phishing emails and exploit kits
+
+**5. Spyware**
+- Secretly monitors user activity
+- Steals sensitive information like passwords and financial data
+
+**6. Adware**
+- Displays unwanted advertisements
+- Can track browsing habits
+
+**7. Rootkit**
+- Hides its existence from operating systems
+- Provides privileged access to attackers
+
+**8. Botnet**
+- Network of infected computers controlled by attacker
+- Used for DDoS attacks and spam campaigns"""
+
+        elif "firewall" in query_lower:
+            response = """**How Firewalls Protect Networks**
+
+A firewall is a network security system that monitors and controls incoming and outgoing network traffic based on predetermined security rules.
+
+**Protection Mechanisms:**
+1. **Packet Filtering** - Examines data packets and blocks suspicious ones
+2. **Stateful Inspection** - Tracks active connections and context
+3. **Proxy Service** - Acts as intermediary between internal and external networks
+4. **Deep Packet Inspection** - Analyzes packet contents for threats
+
+**Types of Firewalls:**
+- **Hardware Firewalls** - Physical devices protecting entire networks
+- **Software Firewalls** - Programs installed on individual computers
+- **Cloud Firewalls** - Virtual firewalls for cloud environments
+
+**Key Benefits:**
+- Prevents unauthorized access to private networks
+- Blocks malicious traffic and cyber attacks
+- Enforces security policies
+- Logs network activity for monitoring
+- Isolates network segments for added security
+
+**Best Practices:**
+- Regularly update firewall rules
+- Monitor firewall logs for suspicious activity
+- Use multiple layers (defense in depth)"""
+
+        elif "xss" in query_lower or "cross-site scripting" in query_lower:
+            response = """**Cross-Site Scripting (XSS)**
+
+XSS attacks inject malicious scripts into web pages viewed by other users, allowing attackers to steal sensitive information or hijack user sessions.
+
+**Types of XSS:**
+1. **Stored XSS** - Malicious script permanently stored on target server
+2. **Reflected XSS** - Script reflected off server to victim's browser
+3. **DOM-based XSS** - Vulnerability exists in client-side code
+
+**Common Attack Vectors:**
+- Search bars that don't sanitize input
+- Comment sections without proper validation
+- User profile fields
+- URL parameters
+
+**Prevention Methods:**
+1. **Input Validation** - Validate all user input on server-side
+2. **Output Encoding** - Encode data before displaying to users
+3. **Content Security Policy** - Restrict which scripts can execute
+4. **HttpOnly Cookies** - Prevent JavaScript from accessing cookies
+5. **X-XSS-Protection Header** - Enable browser XSS protection
+
+**Best Practices:**
+- Never trust user input
+- Use modern frameworks with built-in XSS protection
+- Regularly update dependencies and libraries"""
+
+        elif "password" in query_lower:
+            response = """**How to Create Strong Passwords**
+
+**Password Best Practices:**
+
+1. **Length Matters**
+   - Minimum 12-16 characters
+   - Longer passwords are exponentially harder to crack
+
+2. **Complexity**
+   - Use uppercase and lowercase letters
+   - Include numbers and special characters
+   - Avoid common patterns
+
+3. **Uniqueness**
+   - Use different passwords for each account
+   - Never reuse passwords across services
+
+4. **Memorable but Secure**
+   - Use passphrases (correct horse battery staple)
+   - Consider password managers
+   - Avoid personal information
+
+**Examples of Strong Passwords:**
+- `Tr@inB4tterySt4ple!2024`
+- `C0ffee-M@ker#Sunrise`
+- `PurpleElephant$Dances@Midnight`
+
+**Password Management:**
+- Use reputable password managers (1Password, Bitwarden)
+- Enable two-factor authentication everywhere possible
+- Change passwords immediately after security breaches
+- Never share passwords via email or text
+
+**What to Avoid:**
+- Dictionary words
+- Personal information (birthdays, names)
+- Sequential patterns (123456, qwerty)
+- Substitutions only (P@ssword1)"""
+
         else:
-            response = self._generate_general_response(query)
+            response = self._generate_fallback_cyber_response(query)
         
         # Store conversation
         conversation_entry = {
             "timestamp": timestamp,
             "query": query,
             "response": response,
-            "query_type": query_type
+            "query_type": "cybersecurity"
         }
         
         self.conversation_history.append(conversation_entry)
@@ -291,7 +467,7 @@ class CyberSecurityChatbot:
         return {
             "response": response,
             "timestamp": timestamp,
-            "query_type": query_type,
+            "query_type": "cybersecurity",
             "conversation_id": len(self.conversation_history)
         }
     
