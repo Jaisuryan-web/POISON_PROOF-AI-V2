@@ -1,8 +1,8 @@
 # PoisonProof AI — Advanced Security Platform
 
- **Enterprise-grade AI security platform with real-time anomaly detection, ML model training, and cryptographic verification**
+ **Enterprise-grade AI security platform with real-time anomaly detection, ML model training, Sentra AI assistant, and cryptographic verification**
 
-> A comprehensive Flask-based security platform that detects data poisoning attacks, injection vulnerabilities, and image manipulation across CSV and image datasets. Features live model training with SSE streaming, automated/manual data cleaning, and a cyber-themed UI with Matrix rain animation.
+> A comprehensive Flask-based security platform that detects data poisoning attacks, injection vulnerabilities, and image manipulation across CSV and image datasets. Features live model training with SSE streaming, automated/manual data cleaning, Sentra AI cybersecurity assistant, and a cyber-themed UI with Matrix rain animation.
 
 ---
 
@@ -10,11 +10,14 @@
 
 - [Quick Start](#-quick-start)
 - [Key Features](#-key-features)
+  - [Advanced Threat Detection](#-advanced-threat-detection)
+  - [Machine Learning Platform](#-machine-learning-platform)
+  - [Sentra AI Security Assistant](#-sentra-ai-security-assistant)
 - [Technology Stack](#-technology-stack)
 - [Installation](#-installation)
 - [Usage Guide](#-usage-guide)
 - [Anomaly Detection](#-anomaly-detection)
-- [Machine Learning Platform](#-machine-learning-platform)
+- [Machine Learning Platform](#-machine-learning-platform-1)
 - [API Documentation](#-api-documentation)
 - [Project Structure](#-project-structure)
 - [Configuration](#-configuration)
@@ -95,6 +98,36 @@ Open your browser to: **http://127.0.0.1:5000**
   - Classification reports (precision/recall/f1-score)
 - **SHA-256 Verification**: Every model has a cryptographic hash for integrity
 - **Model Registry**: JSON-based registry tracks all trained models with timestamps
+
+#### Training Dataset
+- **800 Rows**: 603 normal (75.4%), 197 anomalous (24.6%)
+
+### 🤖 Sentra AI Security Assistant
+
+#### Intelligent Cybersecurity Chatbot
+- **Natural Language Processing**: Understands complex cybersecurity queries
+- **Comprehensive Knowledge Base**: Covers data poisoning, injection attacks, malware, network security
+- **Real-time Responses**: Instant answers with detailed explanations and examples
+- **Cybersecurity Specialization**: Expert knowledge in:
+  - **Data Poisoning**: ML model security, adversarial attacks, prevention methods
+  - **Injection Attacks**: SQL injection, XSS, command injection, prevention techniques
+  - **Malware Protection**: Virus types, ransomware, spyware, trojans, botnets
+  - **Network Security**: Firewalls, VPNs, encryption, best practices
+  - **Password Security**: Strong password creation, management, authentication
+
+#### Chatbot Features
+- **Smart Query Classification**: Automatically identifies question types
+- **Detailed Explanations**: Provides examples, code snippets, and prevention methods
+- **Conversation History**: Maintains context across multiple questions
+- **Suggested Questions**: Quick access to common cybersecurity topics
+- **Modern UI**: Cyber-themed interface with real-time messaging
+- **Clear Chat History**: Option to reset conversation for privacy
+
+#### Access Sentra
+- Navigate to **Sentra** in the main navigation menu
+- Ask questions in natural language (e.g., "What is data poisoning?")
+- Get instant, detailed responses with actionable advice
+- Available 24/7 for cybersecurity guidance
 
 #### Training Dataset
 - **800 Rows**: 603 normal (75.4%), 197 anomalous (24.6%)
