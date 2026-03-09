@@ -102,7 +102,7 @@ Open your browser to: **http://127.0.0.1:5000**
 #### Training Dataset
 - **800 Rows**: 603 normal (75.4%), 197 anomalous (24.6%)
 
-### 🤖 Sentra AI Security Assistant
+###  Sentra AI Security Assistant
 
 #### Intelligent Cybersecurity Chatbot
 - **Natural Language Processing**: Understands complex cybersecurity queries
@@ -123,7 +123,7 @@ Open your browser to: **http://127.0.0.1:5000**
 - **Modern UI**: Cyber-themed interface with real-time messaging
 - **Clear Chat History**: Option to reset conversation for privacy
 
-#### Access Sentra
+#### Access SENTRA
 - Navigate to **Sentra** in the main navigation menu
 - Ask questions in natural language (e.g., "What is data poisoning?")
 - Get instant, detailed responses with actionable advice
