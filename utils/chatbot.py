@@ -265,7 +265,7 @@ class CyberSecurityChatbot:
         
         # Direct keyword-based responses
         if any(word in query_lower for word in ['hello', 'hi', 'hey', 'greetings']):
-            response = """Hello! I'm your AI Security Assistant. I can help you with:
+            response = """Hello! I'm **Sentra**, your AI Security Assistant. I can help you with:
 
 🔒 **Data poisoning and ML security**
 💉 **Injection attacks (SQL, XSS, Command)**
