@@ -123,7 +123,7 @@ Open your browser to: **http://127.0.0.1:5000**
 - **Modern UI**: Cyber-themed interface with real-time messaging
 - **Clear Chat History**: Option to reset conversation for privacy
 
-#### Access Sentra
+#### Access SENTRA
 - Navigate to **Sentra** in the main navigation menu
 - Ask questions in natural language (e.g., "What is data poisoning?")
 - Get instant, detailed responses with actionable advice
@@ -1080,6 +1080,7 @@ This is a **proof-of-concept** and **educational tool**. For production use:
 #   P O I S O N _ P R O O F - A I - V 2 
  
  
+
 
 
 
