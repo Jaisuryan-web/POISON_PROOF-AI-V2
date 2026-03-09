@@ -56,7 +56,7 @@ Open your browser to: **http://127.0.0.1:5000**
 
 ---
 
-## 🎯 Key Features
+##  Key Features
 
 ###  Advanced Threat Detection
 
@@ -78,7 +78,7 @@ Open your browser to: **http://127.0.0.1:5000**
 - **Blur Detection**: Gradient variance analysis for quality assessment
 - **Dynamic Range Analysis**: Detects washed-out or over-compressed images
 
-### 🧠 Machine Learning Platform
+### Machine Learning Platform
 
 #### Live Training Console
 - **Real-time SSE Streaming**: Server-Sent Events display training progress live
@@ -1047,5 +1047,6 @@ This is a **proof-of-concept** and **educational tool**. For production use:
 #   P O I S O N _ P R O O F - A I - V 2 
  
  
+
 
 
