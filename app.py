@@ -31,6 +31,9 @@ from utils.chatbot import chatbot
 # NEW: Multimedia VAE System
 from utils.multimedia_vae import MultimediaProcessor, VAETrainer
 
+# Global processor instance to maintain state
+multimedia_processor = MultimediaProcessor()
+
 def create_app(config_name=None):
     """Application factory pattern"""
     app = Flask(__name__)
@@ -599,9 +602,7 @@ def register_routes(app):
             return jsonify({'success': False, 'error': 'No file selected'}), 400
         
         try:
-            # Initialize VAE processor
-            processor = MultimediaProcessor()
-            
+            # Use global processor instance to maintain state
             # Read file data
             file_data = file.read()
             file_type = file.filename.rsplit('.', 1)[1].lower()
@@ -622,8 +623,8 @@ def register_routes(app):
             
             modality = modality_map[file_type]
             
-            # Analyze with VAE
-            results = processor.analyze_file(file_data, modality)
+            # Analyze with VAE using global processor
+            results = multimedia_processor.analyze_file(file_data, modality)
             
             if 'error' in results:
                 return jsonify({'success': False, 'error': results['error']}), 500
@@ -672,33 +673,43 @@ def register_routes(app):
     def api_vae_model_info():
         """Get VAE model information"""
         try:
-            processor = MultimediaProcessor()
+            # Use global processor instance to maintain state
             return jsonify({
                 'success': True,
-                'model_info': processor.get_model_info()
+                'model_info': multimedia_processor.get_model_info()
             })
+            
         except Exception as e:
             return jsonify({'success': False, 'error': str(e)}), 500
 
-    @app.route('/api/vae-thresholds', methods=['POST'])
-    def api_vae_thresholds():
-        """Update VAE anomaly detection thresholds"""
+    @app.route('/api/chatbot/history', methods=['GET'])
+    def api_chatbot_history():
+        """Get chatbot conversation history"""
         try:
-            data = request.get_json()
-            thresholds = data.get('thresholds', {})
-            
-            processor = MultimediaProcessor()
-            processor.update_thresholds(thresholds)
-            
+            limit = request.args.get('limit', 10, type=int)
+            history = chatbot.get_conversation_history(limit)
             return jsonify({
                 'success': True,
-                'message': 'Thresholds updated successfully',
-                'new_thresholds': thresholds
+                'history': history,
+                'total': len(history)
             })
-            
         except Exception as e:
-            return jsonify({'success': False, 'error': str(e)}), 500
+            return jsonify({'error': f'Error getting history: {str(e)}'}), 500
+                limit = request.args.get('limit', 10, type=int)
+                history = chatbot.get_conversation_history(limit)
+                return jsonify({
+                    'success': True,
+                    'history': history,
+                    'total': len(history)
+                })
+            except Exception as e:
+                return jsonify({'error': f'Error getting history: {str(e)}'}), 500
 
+        # NEW: Multimedia VAE Routes
+        @app.route('/multimedia-scan', methods=['GET', 'POST'])
+        def multimedia_scan_page():
+            """Multimedia file scanning page with VAE"""
+            return render_template('multimedia_scan.html')
 def allowed_file(filename):
     """Check if file extension is allowed using config."""
     allowed = {'csv', 'png', 'jpg', 'jpeg', 'gif', 'bmp'}
