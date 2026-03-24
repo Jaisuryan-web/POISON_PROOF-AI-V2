@@ -44,9 +44,7 @@ class CyberSecurityChatbot:
         query_lower = query.lower()
         
         # Enhanced greeting and general conversation
-        if (any(word in query_lower for word in ['hello', 'hi', 'hey', 'greetings', 'good morning', 'good afternoon', 'good evening', 'good mrng', 'gm', 'good day']) or
-            any(word in query_lower for word in ['morning', 'afternoon', 'evening']) and any(word in query_lower for word in ['good', 'gud']) or
-            'sentra' in query_lower and any(word in query_lower for word in ['hello', 'hi', 'hey', 'good', 'morning', 'afternoon', 'evening'])):
+        if any(word in query_lower for word in ['hello', 'hi', 'hey', 'greetings', 'good morning', 'good afternoon', 'good evening']):
             hour = datetime.now().hour
             if 5 <= hour < 12:
                 greeting = "Good morning"
