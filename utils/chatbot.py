@@ -43,10 +43,13 @@ class CyberSecurityChatbot:
         timestamp = datetime.now().isoformat()
         query_lower = query.lower()
         
-        # Enhanced greeting and general conversation
-        if (any(word in query_lower for word in ['hello', 'hi', 'hey', 'greetings', 'good morning', 'good afternoon', 'good evening', 'good mrng', 'gm', 'good day']) or
-            any(word in query_lower for word in ['morning', 'afternoon', 'evening']) and any(word in query_lower for word in ['good', 'gud']) or
-            'sentra' in query_lower and any(word in query_lower for word in ['hello', 'hi', 'hey', 'good', 'morning', 'afternoon', 'evening'])):
+        # Enhanced greeting and general conversation - more specific detection
+        if (any(word in query_lower for word in ['hello', 'hi', 'hey', 'greetings']) or
+            (any(word in query_lower for word in ['good morning', 'good afternoon', 'good evening', 'good day']) and
+             len(query_lower.split()) <= 4) or  # Only match if it's a short greeting
+            (any(word in query_lower for word in ['gm']) and len(query_lower) <= 3) or  # Only "gm" alone
+            ('sentra' in query_lower and len(query_lower.split()) <= 3 and  # Only "hi sentra" type
+             any(word in query_lower for word in ['hello', 'hi', 'hey']))):
             hour = datetime.now().hour
             if 5 <= hour < 12:
                 greeting = "Good morning"
@@ -349,6 +352,138 @@ This is an interesting topic! While I specialize in cybersecurity, I can help wi
 - Arts, culture, and entertainment
 
 Feel free to ask me anything, and I'll do my best to provide a helpful, accurate response!"""
+
+        # Default response for unmatched queries
+        else:
+            response = f"""**I'd be happy to help with "{query}"!**
+
+I can assist with a wide range of topics:
+
+🔒 **Cybersecurity Expertise:**
+- Data poisoning and ML security
+- Network security and firewalls
+- Malware and ransomware protection
+- Password security and authentication
+- Cloud security and compliance
+
+💡 **General Knowledge:**
+- Technology and programming
+- Science and mathematics
+- Business and finance
+- History and current events
+- Arts and culture
+
+**Try asking me:**
+- "What is [topic]?" - for definitions
+- "How does [technology] work?" - for explanations
+- "Tell me about [subject]" - for overviews
+- Any cybersecurity question - for expert advice
+
+What specific aspect would you like to explore?"""
+        
+        # General knowledge and fallback responses
+        elif any(word in query_lower for word in ['what is', 'define', 'explain', 'tell me about', 'how does', 'how do', 'why is', 'where is', 'who is', 'when did']):
+            # This is a general knowledge question
+            if any(topic in query_lower for topic in ['python', 'programming', 'coding', 'javascript', 'html', 'css']):
+                response = """**Programming & Development**
+
+I can help with various programming topics:
+
+**Popular Languages:**
+- **Python** - Great for beginners, data science, AI/ML
+- **JavaScript** - Web development, interactive applications
+- **Java** - Enterprise applications, Android development
+- **C++** - System programming, game development
+- **HTML/CSS** - Web design and styling
+
+**Getting Started:**
+1. Choose a language based on your goals
+2. Set up development environment
+3. Learn basic syntax and concepts
+4. Practice with small projects
+5. Join coding communities for support
+
+**Resources:**
+- Online tutorials (freeCodeCamp, Codecademy)
+- Documentation (MDN, official docs)
+- Practice platforms (LeetCode, HackerRank)
+- Community (Stack Overflow, GitHub)
+
+What specific programming topic interests you?"""
+                
+            elif any(topic in query_lower for topic in ['artificial intelligence', 'ai', 'machine learning', 'deep learning']):
+                response = """**Artificial Intelligence & Machine Learning**
+
+AI is transforming how we interact with technology and solve complex problems.
+
+**Key Concepts:**
+- **Machine Learning** - Systems that learn from data
+- **Deep Learning** - Neural networks with multiple layers
+- **Natural Language Processing** - Understanding human language
+- **Computer Vision** - Interpreting visual information
+
+**Applications:**
+- Virtual assistants (Siri, Alexa)
+- Recommendation systems (Netflix, Amazon)
+- Autonomous vehicles
+- Medical diagnosis
+- Financial fraud detection
+
+**Learning Path:**
+1. Start with Python programming
+2. Learn mathematics (linear algebra, statistics)
+3. Study ML algorithms and frameworks
+4. Work on real projects
+5. Stay updated with research
+
+Would you like to dive deeper into any specific area?"""
+                
+            elif any(topic in query_lower for topic in ['science', 'physics', 'chemistry', 'biology', 'mathematics']):
+                response = """**Science & Mathematics**
+
+Science helps us understand the natural world through observation and experimentation.
+
+**Major Fields:**
+- **Physics** - Matter, energy, motion, forces
+- **Chemistry** - Elements, compounds, reactions
+- **Biology** - Living organisms, evolution, genetics
+- **Mathematics** - Numbers, patterns, logic, proofs
+
+**Scientific Method:**
+1. **Observation** - Notice phenomena
+2. **Hypothesis** - Form testable explanation
+3. **Experiment** - Test predictions
+4. **Analysis** - Interpret results
+5. **Conclusion** - Draw and communicate findings
+
+**Current Frontiers:**
+- Quantum computing and technology
+- Gene editing and synthetic biology
+- Climate science and renewable energy
+- Space exploration
+- Neuroscience and brain research
+
+What scientific area interests you most?"""
+                
+            else:
+                # General fallback for unknown topics
+                response = f"""**Understanding "{query}"**
+
+This is an interesting topic! I can help you learn more about it.
+
+**What I can do:**
+- Provide definitions and explanations
+- Give examples and analogies
+- Explain concepts step by step
+- Connect to related topics
+- Suggest further learning resources
+
+**To help you better:**
+- Could you be more specific about what you'd like to know?
+- Are you looking for basic information or advanced details?
+- Is this for academic, professional, or personal learning?
+
+Feel free to ask follow-up questions, and I'll provide detailed information!"""
 
         # Default response for unmatched queries
         else:
