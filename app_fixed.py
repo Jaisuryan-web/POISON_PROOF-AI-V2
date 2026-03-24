@@ -266,13 +266,11 @@ def register_routes(app):
             return jsonify({'success': False, 'error': str(e)}), 500
 
     @app.route('/train')
-    @app.route('/train_model')
     def train_page():
         """Model training page with live progress"""
         return render_template('train.html')
 
     @app.route('/train/start', methods=['POST'])
-    @app.route('/train_model_post', methods=['POST'])
     def train_start():
         """Start model training with live progress updates"""
         if 'file' not in request.files:
