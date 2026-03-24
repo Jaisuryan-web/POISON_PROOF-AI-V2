@@ -115,7 +115,7 @@ Is there anything else I can assist you with today?"""
 
 Stay secure! 🔒"""
 
-        # Enhanced cybersecurity topics
+        # Enhanced cybersecurity topics - check these BEFORE general knowledge
         elif any(word in query_lower for word in ['data poisoning']):
             response = """**Data Poisoning in Machine Learning**
 
@@ -254,7 +254,7 @@ A firewall is a network security system that monitors and controls incoming and 
 - Regularly review and update passwords
 - Monitor for data breaches involving your accounts"""
 
-        # General knowledge responses
+        # General knowledge responses - check these AFTER specific topics
         elif any(word in query_lower for word in ['what is', 'define', 'explain', 'tell me about', 'how does', 'how do', 'why is', 'where is', 'who is', 'when did']):
             # This is a general knowledge question
             if any(topic in query_lower for topic in ['python', 'programming', 'coding', 'javascript', 'html', 'css']):
