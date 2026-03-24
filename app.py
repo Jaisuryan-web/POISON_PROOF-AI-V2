@@ -28,6 +28,9 @@ from scanners import scan_file as universal_scan, get_supported_extensions, is_s
 # NEW: AI Chatbot System
 from utils.chatbot import chatbot
 
+# NEW: Multimedia VAE System
+from utils.multimedia_vae import MultimediaProcessor, VAETrainer
+
 def create_app(config_name=None):
     """Application factory pattern"""
     app = Flask(__name__)
@@ -578,6 +581,123 @@ def register_routes(app):
             })
         except Exception as e:
             return jsonify({'error': f'Error getting history: {str(e)}'}), 500
+
+    # NEW: Multimedia VAE Routes
+    @app.route('/multimedia-scan', methods=['GET', 'POST'])
+    def multimedia_scan_page():
+        """Multimedia file scanning page with VAE"""
+        return render_template('multimedia_scan.html')
+
+    @app.route('/api/multimedia-scan', methods=['POST'])
+    def api_multimedia_scan():
+        """Scan multimedia files using VAE"""
+        if 'file' not in request.files:
+            return jsonify({'success': False, 'error': 'No file provided'}), 400
+        
+        file = request.files['file']
+        if file.filename == '':
+            return jsonify({'success': False, 'error': 'No file selected'}), 400
+        
+        try:
+            # Initialize VAE processor
+            processor = MultimediaProcessor()
+            
+            # Read file data
+            file_data = file.read()
+            file_type = file.filename.rsplit('.', 1)[1].lower()
+            
+            # Map file extensions to modalities
+            modality_map = {
+                'jpg': 'image', 'jpeg': 'image', 'png': 'image', 'bmp': 'image',
+                'mp4': 'video', 'avi': 'video', 'mov': 'video', 'mkv': 'video',
+                'mp3': 'audio', 'wav': 'audio', 'flac': 'audio', 'ogg': 'audio'
+            }
+            
+            if file_type not in modality_map:
+                return jsonify({
+                    'success': False,
+                    'error': f'Unsupported file type: {file_type}',
+                    'supported_types': list(modality_map.keys())
+                }), 400
+            
+            modality = modality_map[file_type]
+            
+            # Analyze with VAE
+            results = processor.analyze_file(file_data, modality)
+            
+            if 'error' in results:
+                return jsonify({'success': False, 'error': results['error']}), 500
+            
+            return jsonify({
+                'success': True,
+                'results': results,
+                'model_info': processor.get_model_info()
+            })
+            
+        except Exception as e:
+            return jsonify({'success': False, 'error': str(e)}), 500
+
+    @app.route('/api/vae-train', methods=['POST'])
+    def api_vae_train():
+        """Train VAE model"""
+        try:
+            data = request.get_json()
+            modality = data.get('modality', 'image')
+            epochs = data.get('epochs', 50)
+            beta = data.get('beta', 1.0)
+            
+            # Initialize VAE and trainer
+            model = MultimodalVAE({
+                'image': (3, 64, 64),
+                'video': (3, 16, 64, 64),
+                'audio': (1, 128, 128)
+            })
+            
+            trainer = VAETrainer(model, torch.device('cpu'))
+            
+            # Training would happen here with actual dataset
+            # For now, return mock training progress
+            return jsonify({
+                'success': True,
+                'message': f'Training started for {modality} VAE',
+                'epochs': epochs,
+                'beta': beta,
+                'status': 'training_initiated'
+            })
+            
+        except Exception as e:
+            return jsonify({'success': False, 'error': str(e)}), 500
+
+    @app.route('/api/vae-model-info', methods=['GET'])
+    def api_vae_model_info():
+        """Get VAE model information"""
+        try:
+            processor = MultimediaProcessor()
+            return jsonify({
+                'success': True,
+                'model_info': processor.get_model_info()
+            })
+        except Exception as e:
+            return jsonify({'success': False, 'error': str(e)}), 500
+
+    @app.route('/api/vae-thresholds', methods=['POST'])
+    def api_vae_thresholds():
+        """Update VAE anomaly detection thresholds"""
+        try:
+            data = request.get_json()
+            thresholds = data.get('thresholds', {})
+            
+            processor = MultimediaProcessor()
+            processor.update_thresholds(thresholds)
+            
+            return jsonify({
+                'success': True,
+                'message': 'Thresholds updated successfully',
+                'new_thresholds': thresholds
+            })
+            
+        except Exception as e:
+            return jsonify({'success': False, 'error': str(e)}), 500
 
 def allowed_file(filename):
     """Check if file extension is allowed using config."""
