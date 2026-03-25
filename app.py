@@ -346,7 +346,7 @@ def register_routes(app):
         flash('Cleaned file is not available. Please run cleaning again.', 'error')
         return redirect(url_for('upload_page'))
 
-    @app.route('/auto_clean/<filename>')
+    @app.route('/auto_clean/<filename>', methods=['GET', 'POST'])
     def auto_clean_file(filename):
         """Automatically clean all anomalies from a file"""
         try:
@@ -384,15 +384,16 @@ def register_routes(app):
             
             # Store in session for download
             session['cleaned_csv'] = cleaned_filepath
+            session['original_filename'] = filename
             
-            flash(f'Automatically removed {len(rows_to_remove)} anomalous rows from {filename}.', 'success')
+            flash(f'Automatically removed {len(rows_to_remove)} anomalous rows from {filename}. Download link available below.', 'success')
             return redirect(url_for('upload_page'))
             
         except Exception as e:
             flash(f'Error during auto-clean: {str(e)}', 'error')
             return redirect(url_for('upload_page'))
 
-    @app.route('/clean/<filename>')
+    @app.route('/clean/<filename>', methods=['GET', 'POST'])
     def clean_file(filename):
         """Show manual review page for cleaning anomalies"""
         try:
