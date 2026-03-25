@@ -345,6 +345,78 @@ def register_routes(app):
             return send_file(path, as_attachment=True)
         flash('Cleaned file is not available. Please run cleaning again.', 'error')
         return redirect(url_for('upload_page'))
+
+    @app.route('/auto_clean/<filename>')
+    def auto_clean_file(filename):
+        """Automatically clean all anomalies from a file"""
+        try:
+            # Get the original file path from session or construct it
+            filepath = os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(filename))
+            
+            if not os.path.exists(filepath):
+                flash('File not found.', 'error')
+                return redirect(url_for('upload_page'))
+            
+            # Read the CSV file
+            df = pd.read_csv(filepath)
+            
+            # Detect anomalies
+            anomalies = _detect_csv_anomalies_mod(df)
+            
+            if not anomalies:
+                flash('No anomalies found to clean.', 'info')
+                return redirect(url_for('upload_page'))
+            
+            # Get rows to remove (from anomaly locations)
+            rows_to_remove = set()
+            for anomaly in anomalies:
+                if 'Row ' in anomaly['location']:
+                    row_num = int(anomaly['location'].split('Row ')[1].split(' ')[0]) - 1
+                    rows_to_remove.add(row_num)
+            
+            # Remove anomalous rows
+            cleaned_df = df.drop(index=list(rows_to_remove))
+            
+            # Save cleaned file
+            cleaned_filename = f"cleaned_{filename}"
+            cleaned_filepath = os.path.join(app.config['UPLOAD_FOLDER'], cleaned_filename)
+            cleaned_df.to_csv(cleaned_filepath, index=False)
+            
+            # Store in session for download
+            session['cleaned_csv'] = cleaned_filepath
+            
+            flash(f'Automatically removed {len(rows_to_remove)} anomalous rows from {filename}.', 'success')
+            return redirect(url_for('upload_page'))
+            
+        except Exception as e:
+            flash(f'Error during auto-clean: {str(e)}', 'error')
+            return redirect(url_for('upload_page'))
+
+    @app.route('/clean/<filename>')
+    def clean_file(filename):
+        """Show manual review page for cleaning anomalies"""
+        try:
+            # Get the original file path
+            filepath = os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(filename))
+            
+            if not os.path.exists(filepath):
+                flash('File not found.', 'error')
+                return redirect(url_for('upload_page'))
+            
+            # Read the CSV file and detect anomalies
+            df = pd.read_csv(filepath)
+            anomalies = _detect_csv_anomalies_mod(df)
+            
+            return render_template('review.html', 
+                             filename=filename,
+                             dataframe=df,
+                             anomalies=anomalies)
+            
+        except Exception as e:
+            flash(f'Error loading file for review: {str(e)}', 'error')
+            return redirect(url_for('upload_page'))
+        flash('Cleaned file is not available. Please run cleaning again.', 'error')
+        return redirect(url_for('upload_page'))
     
     @app.route('/models')
     def models_dashboard():
@@ -823,7 +895,7 @@ def simulate_anomaly_detection(filepath, file_type):
     if file_type == 'csv':
         try:
             df = pd.read_csv(filepath)
-            anomalies = _detect_csv_anomalies(df, max_findings=50)
+            anomalies = _detect_csv_anomalies_mod(df)
         except Exception as e:
             anomalies.append({
                 'type': 'File Error',
