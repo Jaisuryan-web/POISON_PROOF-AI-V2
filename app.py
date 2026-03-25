@@ -266,48 +266,48 @@ def register_routes(app):
             return jsonify({'success': False, 'error': str(e)}), 500
 
     @app.route('/train')
-def train_page():
-    """Model training page with live progress"""
-    return render_template('train.html')
+    def train_page():
+        """Model training page with live progress"""
+        return render_template('train.html')
 
-@app.route('/train_model')
-def train_model():
-    """Model training page with live progress (alias for templates)"""
-    return train_page()
+    @app.route('/train_model')
+    def train_model():
+        """Model training page with live progress (alias for templates)"""
+        return train_page()
 
     @app.route('/train/start', methods=['POST'])
-def train_start():
-    """Start model training with live progress updates"""
-    if 'file' not in request.files:
-        flash('No training file selected', 'error')
-        return redirect(url_for('train_page'))
-    
-    file = request.files['file']
-    if file.filename == '':
-        flash('No training file selected', 'error')
-        return redirect(url_for('train_page'))
-    
-    if file and allowed_file(file.filename):
-        try:
-            filename = secure_filename(file.filename)
-            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            file.save(filepath)
-            
-            # Start training job
-            job_id = _train_model_streaming(filepath, model_type='csv')
-            
-            return redirect(url_for('train_live', job_id=job_id))
-        except Exception as e:
-            flash(f'Error starting training: {e}', 'error')
+    def train_start():
+        """Start model training with live progress updates"""
+        if 'file' not in request.files:
+            flash('No training file selected', 'error')
             return redirect(url_for('train_page'))
-    else:
-        flash('Invalid file type. Please upload CSV files only.', 'error')
-        return redirect(url_for('train_page'))
+        
+        file = request.files['file']
+        if file.filename == '':
+            flash('No training file selected', 'error')
+            return redirect(url_for('train_page'))
+        
+        if file and allowed_file(file.filename):
+            try:
+                filename = secure_filename(file.filename)
+                filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                file.save(filepath)
+                
+                # Start training job
+                job_id = _train_model_streaming(filepath, model_type='csv')
+                
+                return redirect(url_for('train_live', job_id=job_id))
+            except Exception as e:
+                flash(f'Error starting training: {e}', 'error')
+                return redirect(url_for('train_page'))
+        else:
+            flash('Invalid file type. Please upload CSV files only.', 'error')
+            return redirect(url_for('train_page'))
 
-@app.route('/train_model_post', methods=['POST'])
-def train_model_post():
-    """Start model training with live progress updates (alias for templates)"""
-    return train_start()
+    @app.route('/train_model_post', methods=['POST'])
+    def train_model_post():
+        """Start model training with live progress updates (alias for templates)"""
+        return train_start()
 
     @app.route('/train/live/<job_id>')
     def train_live(job_id):
@@ -867,7 +867,7 @@ def generate_anomaly_chart(anomalies):
             color=colors,
             line=dict(width=2)
         ),
-        text=[f"Anomaly {i}: {a.get('type', 'Unknown')}" for i in anomaly_indices]
+        text=[f"Anomaly {i}: {anomalies[i-1].get('type', 'Unknown')}" for i in anomaly_indices]
     )
     
     layout = go.Layout(
