@@ -296,6 +296,13 @@ def register_routes(app):
                 # Start training job
                 job_id = _train_model_streaming(filepath, model_type='csv')
                 
+                # Store job info in session for streaming
+                session['training_job'] = {
+                    'job_id': job_id,
+                    'path': filepath,
+                    'model_type': 'csv'
+                }
+                
                 return redirect(url_for('train_live', job_id=job_id))
             except Exception as e:
                 flash(f'Error starting training: {e}', 'error')
