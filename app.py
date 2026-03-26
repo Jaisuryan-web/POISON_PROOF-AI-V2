@@ -294,7 +294,13 @@ def register_routes(app):
                 file.save(filepath)
                 
                 # Start training job
-                job_id, df, model_type, target = start_training_job(filepath, model_type='csv')
+                print(f"Starting training job with filepath: {filepath}")
+                try:
+                    job_id, df, model_type, target = start_training_job(filepath, model_type='csv')
+                    print(f"Got job_id: {job_id}, df shape: {df.shape if hasattr(df, 'shape') else 'No df'}")
+                except Exception as e:
+                    print(f"Error calling start_training_job: {e}")
+                    raise e
                 
                 # Store job info in session for streaming
                 session['training_job'] = {
