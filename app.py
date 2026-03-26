@@ -294,14 +294,16 @@ def register_routes(app):
                 file.save(filepath)
                 
                 # Start training job
-                job_id, training_generator = start_training_job(filepath, model_type='csv')
+                job_id, df, model_type, target = start_training_job(filepath, model_type='csv')
                 
                 # Store job info in session for streaming
                 session['training_job'] = {
                     'job_id': job_id,
                     'path': filepath,
                     'model_type': 'csv',
-                    'generator': training_generator  # Store generator reference
+                    'df': df,  # Store dataframe for streaming
+                    'model_type': model_type,  # Store model type for streaming
+                    'target': target  # Store target for streaming
                 }
                 
                 return redirect(url_for('train_live', job_id=job_id))
@@ -331,10 +333,13 @@ def register_routes(app):
         
         def generate():
             try:
-                # Use the stored generator
-                training_generator = job.get('generator')
-                if training_generator:
-                    for event in training_generator:
+                # Use stored data from session
+                df = job.get('df')
+                model_type = job.get('model_type')
+                target = job.get('target')
+                
+                if df is not None:
+                    for event in _train_model_streaming(df, model_type=model_type, target=target):
                         yield f"data: {json.dumps(event)}\n\n"
                         time.sleep(0.1)
                 else:

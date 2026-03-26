@@ -170,11 +170,7 @@ def start_training_job(df: pd.DataFrame, model_type: str = 'LogisticRegression',
     ts = int(time.time())
     job_id = f"job_{ts}"
     
-    # Start training in background (simplified for now)
-    # In real implementation, you'd use threading/async
-    training_generator = train_model_streaming(df, model_type, target)
-    
-    # Store job info for session (not the generator itself)
+    # Store job info for session
     job_info = {
         'job_id': job_id,
         'path': '',  # Would be stored file path
@@ -182,5 +178,5 @@ def start_training_job(df: pd.DataFrame, model_type: str = 'LogisticRegression',
         'status': 'training'
     }
     
-    return job_id, training_generator
+    return job_id, df, model_type, target
     yield {'status': 'Training and verification complete.', 'progress': 100}
