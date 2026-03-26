@@ -178,4 +178,3 @@ def start_training_job(filepath: str, model_type: str = 'LogisticRegression', ta
     except Exception as e:
         print(f"Error in start_training_job: {e}")
         raise e
-    yield {'status': 'Training and verification complete.', 'progress': 100}
