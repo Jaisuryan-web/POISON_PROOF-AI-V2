@@ -164,19 +164,18 @@ def train_model_streaming(df: pd.DataFrame, model_type: str = 'LogisticRegressio
     yield {'hash': model_hash}
 
 
-def start_training_job(df: pd.DataFrame, model_type: str = 'LogisticRegression', target: Optional[str] = None):
+def start_training_job(filepath: str, model_type: str = 'LogisticRegression', target: Optional[str] = None):
     """Start training and return job info for session storage"""
-    # Generate unique job ID
-    ts = int(time.time())
-    job_id = f"job_{ts}"
-    
-    # Store job info for session
-    job_info = {
-        'job_id': job_id,
-        'path': '',  # Would be stored file path
-        'model_type': model_type,
-        'status': 'training'
-    }
-    
-    return job_id, df, model_type, target
+    try:
+        # Generate unique job ID
+        ts = int(time.time())
+        job_id = f"job_{ts}"
+        
+        # Read the CSV file
+        df = pd.read_csv(filepath)
+        
+        return job_id, df, model_type, target
+    except Exception as e:
+        print(f"Error in start_training_job: {e}")
+        raise e
     yield {'status': 'Training and verification complete.', 'progress': 100}

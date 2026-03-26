@@ -333,9 +333,18 @@ class MultimediaProcessor:
             
             x = self.preprocessing[file_type](file_data)
             
+            # Map file extension to modality for threshold lookup
+            modality_map = {
+                'jpg': 'image', 'jpeg': 'image', 'png': 'image', 'bmp': 'image',
+                'mp4': 'video', 'avi': 'video', 'mov': 'video', 'mkv': 'video',
+                'mp3': 'audio', 'wav': 'audio', 'flac': 'audio', 'ogg': 'audio'
+            }
+            
+            modality = modality_map.get(file_type, file_type)
+            
             # VAE inference
             with torch.no_grad():
-                results = self.model(x, file_type)
+                results = self.model(x, modality)
                 
                 # Calculate reconstruction error
                 recon_error = F.mse_loss(results['reconstruction'], x, reduction='none')
@@ -343,14 +352,14 @@ class MultimediaProcessor:
                 
                 # Anomaly detection
                 anomaly_score = results['anomaly_score'].item()
-                is_anomaly = anomaly_score > self.thresholds[file_type]
+                is_anomaly = anomaly_score > self.thresholds[modality]
                 
                 return {
-                    'file_type': file_type,
+                    'file_type': modality,
                     'anomaly_score': float(anomaly_score),
                     'reconstruction_error': float(recon_error.item()),
                     'is_anomaly': bool(is_anomaly),
-                    'threshold': self.thresholds[file_type],
+                    'threshold': self.thresholds[modality],
                     'timestamp': datetime.now().isoformat(),
                     'analysis_details': {
                         'latent_mean': results['mu'].mean().item(),
