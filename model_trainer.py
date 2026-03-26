@@ -162,4 +162,25 @@ def train_model_streaming(df: pd.DataFrame, model_type: str = 'LogisticRegressio
     
     yield {'status': f'Model hash generated.', 'progress': 95}
     yield {'hash': model_hash}
+
+
+def start_training_job(df: pd.DataFrame, model_type: str = 'LogisticRegression', target: Optional[str] = None):
+    """Start training and return job info for session storage"""
+    # Generate unique job ID
+    ts = int(time.time())
+    job_id = f"job_{ts}"
+    
+    # Start training in background (simplified for now)
+    # In real implementation, you'd use threading/async
+    training_generator = train_model_streaming(df, model_type, target)
+    
+    # Store job info for session (not the generator itself)
+    job_info = {
+        'job_id': job_id,
+        'path': '',  # Would be stored file path
+        'model_type': model_type,
+        'status': 'training'
+    }
+    
+    return job_id, training_generator
     yield {'status': 'Training and verification complete.', 'progress': 100}

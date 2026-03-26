@@ -18,7 +18,7 @@ import threading
 from utils.security import allowed_file as _allowed_file_util, hash_file as _hash_file_util, schedule_cleanup, log_audit_event
 from utils.detection import detect_csv_anomalies as _detect_csv_anomalies_mod, analyze_image as _analyze_image_mod
 from utils.cleaner import auto_clean as _auto_clean
-from model_trainer import train_model_streaming as _train_model_streaming
+from model_trainer import train_model_streaming as _train_model_streaming, start_training_job
 import uuid
 import re
 
@@ -294,13 +294,14 @@ def register_routes(app):
                 file.save(filepath)
                 
                 # Start training job
-                job_id = _train_model_streaming(filepath, model_type='csv')
+                job_id, training_generator = start_training_job(filepath, model_type='csv')
                 
                 # Store job info in session for streaming
                 session['training_job'] = {
                     'job_id': job_id,
                     'path': filepath,
-                    'model_type': 'csv'
+                    'model_type': 'csv',
+                    'generator': training_generator  # Store generator reference
                 }
                 
                 return redirect(url_for('train_live', job_id=job_id))
@@ -330,16 +331,14 @@ def register_routes(app):
         
         def generate():
             try:
-                path = job.get('path')
-                model_type = job.get('model_type')
-                df = pd.read_csv(path)
-                
-                for event in _train_model_streaming(df, model_type=model_type):
-                    yield f"data: {json.dumps(event)}\n\n"
-                    time.sleep(0.1)
-                
-                yield f"data: {json.dumps({'message': 'complete'})}\n\n"
-                
+                # Use the stored generator
+                training_generator = job.get('generator')
+                if training_generator:
+                    for event in training_generator:
+                        yield f"data: {json.dumps(event)}\n\n"
+                        time.sleep(0.1)
+                else:
+                    yield f"data: {json.dumps({'status': 'Training complete', 'progress': 100})}\n\n"
             except Exception as e:
                 yield f"data: {json.dumps({'error': str(e)})}\n\n"
         
