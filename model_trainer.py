@@ -104,64 +104,78 @@ def train_model(df: pd.DataFrame, target: Optional[str] = None, model_type: str 
 
 def train_model_streaming(df: pd.DataFrame, model_type: str = 'LogisticRegression', target: Optional[str] = None):
     """Generator that yields training progress events for SSE streaming."""
-    ensure_model_paths()
-    
-    yield {'status': 'Loading dataset...', 'progress': 10}
-    
-    X, y = _prepare_xy(df, target)
-    target_col = target or df.columns[-1]
-    
-    yield {'status': f'Target column: {target_col}', 'progress': 20}
-    yield {'status': 'Splitting data (75/25)...', 'progress': 30}
-    
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
-    
-    model = _choose_model(model_type)
-    
-    yield {'status': f'Training {model.__class__.__name__}...', 'progress': 40}
-    
-    model.fit(X_train, y_train)
-    
-    yield {'status': 'Training complete.', 'progress': 70}
-    
-    y_pred = model.predict(X_test)
-    metrics = {
-        "accuracy": float(accuracy_score(y_test, y_pred)),
-        "precision": float(precision_score(y_test, y_pred, average='macro', zero_division=0)),
-        "recall": float(recall_score(y_test, y_pred, average='macro', zero_division=0)),
-    }
-    
-    yield {'metrics': metrics, 'progress': 80}
-    yield {'status': f'Accuracy: {metrics["accuracy"]:.4f}', 'progress': 85}
-    
-    ts = int(time.time())
-    model_name = f"{model.__class__.__name__}_{ts}.pkl"
-    model_path = os.path.join(TRAINED_DIR, model_name)
-    joblib.dump(model, model_path)
-    
-    yield {'status': 'Generating model hash (SHA-256)...', 'progress': 90}
-    
-    model_hash = hash_file(model_path)
-    
     try:
-        with open(HASHES_PATH, 'r', encoding='utf-8') as f:
-            data = json.load(f)
-    except (FileNotFoundError, json.JSONDecodeError):
-        data = []
-    
-    data.append({
-        'model_name': model_name,
-        'hash': model_hash,
-        'trained_at': _utc_now_iso(),
-        'metrics': metrics,
-        'model_type': model.__class__.__name__
-    })
-    
-    with open(HASHES_PATH, 'w', encoding='utf-8') as f:
-        json.dump(data, f, indent=2)
-    
-    yield {'status': f'Model hash generated.', 'progress': 95}
-    yield {'hash': model_hash}
+        ensure_model_paths()
+        
+        yield {'status': 'Loading dataset...', 'progress': 10}
+        
+        # Check if DataFrame is empty
+        if df.empty:
+            yield {'status': 'Error: Dataset is empty', 'progress': 0, 'error': True}
+            return
+        
+        # Check if DataFrame has enough columns
+        if len(df.columns) < 2:
+            yield {'status': 'Error: Dataset needs at least 2 columns', 'progress': 0, 'error': True}
+            return
+        
+        X, y = _prepare_xy(df, target)
+        target_col = target or df.columns[-1]
+        
+        yield {'status': f'Target column: {target_col}', 'progress': 20}
+        yield {'status': 'Splitting data (75/25)...', 'progress': 30}
+        
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+        
+        model = _choose_model(model_type)
+        
+        yield {'status': f'Training {model.__class__.__name__}...', 'progress': 40}
+        
+        model.fit(X_train, y_train)
+        
+        yield {'status': 'Training complete.', 'progress': 70}
+        
+        y_pred = model.predict(X_test)
+        metrics = {
+            "accuracy": float(accuracy_score(y_test, y_pred)),
+            "precision": float(precision_score(y_test, y_pred, average='macro', zero_division=0)),
+            "recall": float(recall_score(y_test, y_pred, average='macro', zero_division=0)),
+        }
+        
+        yield {'metrics': metrics, 'progress': 80}
+        yield {'status': f'Accuracy: {metrics["accuracy"]:.4f}', 'progress': 85}
+        
+        ts = int(time.time())
+        model_name = f"{model.__class__.__name__}_{ts}.pkl"
+        model_path = os.path.join(TRAINED_DIR, model_name)
+        joblib.dump(model, model_path)
+        
+        yield {'status': 'Generating model hash (SHA-256)...', 'progress': 90}
+        
+        model_hash = hash_file(model_path)
+        
+        try:
+            with open(HASHES_PATH, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+        except (FileNotFoundError, json.JSONDecodeError):
+            data = []
+        
+        data.append({
+            'model_name': model_name,
+            'hash': model_hash,
+            'trained_at': _utc_now_iso(),
+            'metrics': metrics,
+            'model_type': model.__class__.__name__
+        })
+        
+        with open(HASHES_PATH, 'w', encoding='utf-8') as f:
+            json.dump(data, f, indent=2)
+        
+        yield {'status': f'Model hash generated.', 'progress': 95}
+        yield {'hash': model_hash}
+        
+    except Exception as e:
+        yield {'status': f'Error during training: {str(e)}', 'progress': 0, 'error': True}
 
 
 def start_training_job(filepath: str, model_type: str = 'LogisticRegression', target: Optional[str] = None):

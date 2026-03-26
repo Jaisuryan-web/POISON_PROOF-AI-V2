@@ -306,10 +306,8 @@ def register_routes(app):
                 session['training_job'] = {
                     'job_id': job_id,
                     'path': filepath,
-                    'model_type': 'csv',
-                    'df': df,  # Store dataframe for streaming
-                    'model_type': model_type,  # Store model type for streaming
-                    'target': target  # Store target for streaming
+                    'model_type': model_type,
+                    'target': target
                 }
                 
                 return redirect(url_for('train_live', job_id=job_id))
@@ -339,19 +337,27 @@ def register_routes(app):
         
         def generate():
             try:
-                # Use stored data from session
-                df = job.get('df')
+                # Read DataFrame from stored path
+                path = job.get('path')
                 model_type = job.get('model_type')
                 target = job.get('target')
                 
-                if df is not None:
+                if path and os.path.exists(path):
+                    df = pd.read_csv(path)
+                    
+                    # Send initial connection message
+                    yield f"data: {json.dumps({'status': 'Starting training...', 'progress': 0})}\n\n"
+                    
                     for event in _train_model_streaming(df, model_type=model_type, target=target):
                         yield f"data: {json.dumps(event)}\n\n"
-                        time.sleep(0.1)
+                        time.sleep(0.5)  # Slower updates to prevent disconnection
+                    
+                    # Send completion message
+                    yield f"data: {json.dumps({'status': 'Training completed!', 'progress': 100, 'complete': True})}\n\n"
                 else:
-                    yield f"data: {json.dumps({'status': 'Training complete', 'progress': 100})}\n\n"
+                    yield f"data: {json.dumps({'error': 'Training file not found'})}\n\n"
             except Exception as e:
-                yield f"data: {json.dumps({'error': str(e)})}\n\n"
+                yield f"data: {json.dumps({'error': f'Training failed: {str(e)}'})}\n\n"
         
         return Response(stream_with_context(generate()), mimetype='text/event-stream')
 
