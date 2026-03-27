@@ -100,5 +100,16 @@
       "recall": 0.59
     },
     "model_type": "LogisticRegression"
+  },
+  {
+    "model_name": "LogisticRegression_1774518703.pkl",
+    "hash": "7860d1a0c015245f068938fb15027981b45df8e8aa3c4d3a20456076c38873b9",
+    "trained_at": "2026-03-26T09:51:43.758022+00:00",
+    "metrics": {
+      "accuracy": 0.8563218390804598,
+      "precision": 0.8044117647058824,
+      "recall": 0.5521541950113379
+    },
+    "model_type": "LogisticRegression"
   }
 ]
